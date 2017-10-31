@@ -1,0 +1,116 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+
+<!-- Mirrored from www.brics.dk/~salvail/qrypto/doc/QuCrypt/respserver.html by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 03 May 2011 16:04:54 GMT -->
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.76 [en] (X11; U; IRIX 6.5 IP32) [Netscape]">
+</head>
+<body text="#000000" bgcolor="#FF9900" link="#000099" vlink="#3366FF" alink="#000088">
+
+<center>
+<h1>
+<b>Responder Server</b></h1></center>
+
+<p><br><font size=+1>The responder server is a process responsible for
+providing&nbsp; to the <a href="respserver.html">responder player</a>&nbsp;
+a connection to the quantum channel. The quantum channel can be real or
+virtual. In the case of a virtual quantum transmission, the respondor server
+simulates a quantum channel by communicating classically with the <a href="initserver.html">initiator
+server</a> (through an IP connection). When the quantum communication is
+real, the responder server connects also to the quantum channel. This is
+through a normal IP connection with the so-called&nbsp; <a href="../physApp/datagrabber.html">quantum
+data grabber</a>. Typically, the responder server runs on the same machine
+than the respondor player. When run,&nbsp; the responder server looks as
+follow:</font>
+<center>
+<p><img SRC="respserver.gif" HSPACE=3 VSPACE=3 BORDER=3 height=367 width=381></center>
+
+<p><br>
+<br>
+<p>
+<hr WIDTH="100%">
+<br>&nbsp;
+<br>&nbsp;
+<p><font size=+1>The top window shows information to the user as the server
+is running. In addition, the responder server window contains the following
+items gathered in 3 groups:</font>
+<p><i><font size=+1>Quantum transmission settings:</font></i>
+<ul>
+<li>
+<font size=+1><b>Virtual button</b>: allows to define the error-rate for
+the next virtual quantum transmission on the responder side. A received
+virtual qubit willl be flipped with&nbsp; the selected probability when
+it is detected.</font></li>
+
+<li>
+<font size=+1><b>Real button</b>: allows to select the IP address and the
+port number for the connection to the quantum channel or more precisely
+to the <a href="../physApp/datagrabber.html">quantum data grabber</a>.</font></li>
+
+<li>
+<font size=+1>The <b>right-label</b> indicates after connection with the
+<a href="initserver.html">initiator
+server </a>(and after a request has been made by the <a href="initplayer.html">initiator
+player</a>) whether the next quantum transmission will be <i>virtual</i>
+or <i>real</i>. The quantum transmission to take place can be one of the
+two supported&nbsp; schemes:</font></li>
+
+<ul>
+<li>
+<font size=+1><a href="bb84coding.html">BB84 quantum coding</a> and</font></li>
+
+<li>
+<font size=+1><a href="B92coding-2.html">B92 quantum coding</a>.</font></li>
+</ul>
+</ul>
+<i><font size=+1>Ports Settings:</font></i>
+<ul>
+<li>
+<font size=+1>The <b>Server IP</b> is the IP address of the initiator server.
+When the responder server is launched, it tries to connect to the
+<a href="initserver.html">initiator
+server</a>.</font></li>
+
+<li>
+<font size=+1>The<b> Server Port</b> is the port number at which the responder
+server connects to the <a href="initserver.html">initiator server</a>.</font></li>
+
+<li>
+<font size=+1>The <b>Client Port</b> is the port number at which the responder
+server waits for a connection with the <a href="respplayer.html">responder
+player</a>.</font></li>
+</ul>
+
+<p><br><i><font size=+1>Actions:</font></i>
+<ul>
+<li>
+<font size=+1>The <b>start/stop button </b>are used to start or to stop
+the server. For the time being, for each quantum transmission the responder
+server must be restarted and a new connection with the <a href="initserver.html">initiator
+server</a> must be established. After each transmission, the server stops.
+If the stop button is pressed while the server is running then the execution
+is aborted. The responder server must be started after the <a href="initserver.html">initiator
+server</a>&nbsp; but before the <a href="respplayer.html">responder player</a>.</font></li>
+
+<li>
+<font size=+1>The <b>progress bar</b> indicates the progress during quantum
+transmission.</font></li>
+</ul>
+
+<p><br><b><font size=+1>Security Issues:</font></b>
+<p><font size=+1>&nbsp;&nbsp;&nbsp; The connection between the responder
+server and the <a href="respplayer.html">responder player</a> must be private
+in order for the quantum protocol to be implemented securely. This can
+be achieved by running both the initiator server and the initiator player
+on the same machine.</font>
+<p><font size=+1>&nbsp;&nbsp;&nbsp; The connection between the responder
+server and the <a href="initserver.html">initiator server</a> does not
+need to be private but should be authenticated.&nbsp; Authentication is
+not provided by the current implementation.</font>
+<p>
+<hr WIDTH="100%">
+</body>
+
+<!-- Mirrored from www.brics.dk/~salvail/qrypto/doc/QuCrypt/respserver.html by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 03 May 2011 16:04:59 GMT -->
+</html>

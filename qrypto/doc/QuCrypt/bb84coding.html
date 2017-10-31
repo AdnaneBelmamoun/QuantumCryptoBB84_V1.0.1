@@ -1,0 +1,182 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+
+<!-- Mirrored from www.brics.dk/~salvail/qrypto/doc/QuCrypt/bb84coding.html by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 03 May 2011 16:05:08 GMT -->
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.76 [en] (X11; U; IRIX 6.5 IP32) [Netscape]">
+</head>
+<body text="#000000" bgcolor="#FF9900" link="#000099" vlink="#3366FF" alink="#000088">
+
+<center><b><font size=+4>The BB84 Quantum Coding Scheme</font></b></center>
+
+<p><font size=+1>The BB84 quantum coding scheme was the first proposed&nbsp;
+quantum encoding of classical information&nbsp; in such a way that the
+receiver (legitimate or illegitimate) cannot recover with 100% reliability.&nbsp;
+It is the basic tool most of the quantum protocols are based upon (see
+Bennet, Brassard, <i>"The use of WWWW",JournalXX</i>).</font>
+<p><font size=+1>The BB84 coding scheme makes a correspondance between
+classical bits and quantum states. Each classical bits corresponds to a
+mixture of two equally likely non-orthogonal quantum states. One representation
+looks like:</font>
+<center>
+<p><img SRC="bb84.jpg" height=170 width=266></center>
+
+<p><font size=+1>and we denote by <tt>|<b><font color="#990000">0</font></b>></tt>,
+<tt>|<b><font color="#990000">1</font></b>></tt>,
+<tt>|<b><font color="#0000FF">0</font></b>></tt>,
+and
+<tt>|<b><font color="#0000FF">1</font></b>></tt> the four states depicted
+in the picture.</font>
+<p><font size=+1>The usual way to encode information to be sent over the
+quantum channel is by the transmission of photons in some polarization
+states. The direction of the polarization encodes a classical bit. In the
+BB84 coding scheme, the classical bit 0 is encoded either by a photon with
+horizontal polarization or by a photon with polarization at 45degrees of
+the horizontal direction.&nbsp; The classical bit 1 is encoded by either
+a photon with polarization along the vertical direction or by a photon
+polarized at an angle of 135 degrees with the horizontal direction.</font>
+<p><font size=+1>According to quantum mechanics, it is impossible to distinguish
+with certainty two non-orthogonal quantum states. In order to distinguish,
+a quantum measurement must be performed providing a classical output trying
+to identify the received state. Follow this link for more information about
+<a href="vnm.html">quantum
+measurements</a>. The obliviousness of the transmitted information provides
+the cryptographic properties needed in quantum cryptography.</font>
+<p><font size=+1>The following measurements will be used for the description
+of the BB84 coding scheme described below:</font>
+<ul>
+<li>
+<font size=+1>"</font><b><tt><font color="#990000"><font size=+4>+</font></font></tt></b><font size=+1>"
+denotes the Von Neumann measurement allowing to distinguish perfectly between
+<tt>|</tt></font><tt><b><font color="#990000"><font size=+2>0</font></font></b><font size=+1>></font></tt><font size=+1>
+and <tt>|</tt></font><tt><b><font color="#990000"><font size=+2>1</font></font></b><font size=+1>></font></tt><font size=+1>.
+This measurement is also called <i>measurement in the rectilinear basis</i>.</font></li>
+
+<li>
+<font size=+1>"</font><b><tt><font color="#0000FF"><font size=+4>x</font></font></tt></b><font size=+1>"
+denotes the Von Neumann measurement allowing to distinguish perfectly between
+<tt>|</tt></font><tt><b><font color="#0000FF"><font size=+2>0</font></font></b><font size=+1>></font></tt><font size=+1>
+and <tt>|</tt></font><tt><b><font color="#0000FF"><font size=+2>1</font></font></b><font size=+1>></font></tt><font size=+1>.
+This measurement is also called <i>measurement in the diagonal basis</i>.</font></li>
+</ul>
+
+<h1>
+<font size=+2>BB84 Quantum Transmission</font></h1>
+<font size=+1>The BB84 quantum transmission is a standard cryptographic
+and quantum primitive that can be used in different kind of protocols.
+Quantum key distribution using BB84 quantum transmission enjoys good cryptographic
+properties making it more secure but more difficult to implement than the
+<a href="b92coding.html">B92
+quantum transmission</a>.&nbsp; The BB84 transmission sonsists simply in
+the transmission of <i>n </i>random BB84 qubits from Alice to Bob. Bob
+measures each qubit he received by picking randomly a measurement in the
+rectilinear or the diagonal. Alice's output of the transmission is a pair
+<i>(b,t)</i>
+of&nbsp; the classical bits <i>b</i> and the bases <i>t</i> used for preparing
+the received qubits. Bob's output is a pair <i>(b',t')</i> of&nbsp; the
+classical bits describing the bits obtained <i>b'</i> after the measurements
+<i>t'</i>.</font>
+<p><font face="Courier New,Courier"><b><font size=+1>Alice's input : n
+</font></b><font size=-1>(the
+length of the resulting transmission)</font></font>
+<br><b><font face="Courier New,Courier"><font size=+1>Bob's input&nbsp;&nbsp;
+: n</font></font></b>
+<br><font face="Courier New,Courier"><b><font size=+1>Alice's output: (b,t)
+</font></b><font size=-1>(the
+bits and bases transmitted)</font></font>
+<br><font face="Courier New,Courier"><font size=+1><b>Bob's output&nbsp;
+: (b',t')</b> </font><font size=-1>(the bits and the bases obtained)</font></font>
+<br>&nbsp;
+<ol>
+<li>
+<b><i><font size=+1>m = 0</font></i></b></li>
+
+<li>
+<tt><font size=+1><b>While</b> <b><i>m</i></b> &lt;&nbsp; <b><i>n</i>do:</b></font></tt></li>
+
+<ol>
+<li>
+<b><tt><font size=+1>Alice picks <i>b<sub>m</sub></i> randomly in {0,1}</font></tt></b></li>
+
+<li>
+<b><tt><font size=+1>Alice picks <i>t<sub>m</sub></i> randomly in {</font><font color="#3333FF"><font size=+2>+</font></font><font size=+1>,</font><font color="#990000"><font size=+2>X</font></font><font size=+1>}</font></tt></b></li>
+
+<li>
+<b><tt><font size=+1>Bob picks <i>t'<sub>m</sub></i> random in {</font><font color="#3333FF"><font size=+2>+</font></font><font size=+1>,</font><font color="#990000"><font size=+2>X</font></font><font size=+1>}</font></tt></b></li>
+
+<li>
+<b><tt><font size=+1>if <i>t<sub>m</sub> </i>= </font><font color="#3333FF"><font size=+2>+</font></font><font size=+1>
+then Alice sends |<i><font color="#3333FF">b<sub>m</sub></font></i>> to
+Bob</font></tt></b></li>
+
+<li>
+<b><tt><font size=+1>if <i>t<sub>m</sub></i> = </font><font color="#990000"><font size=+2>X</font></font><font size=+1>
+then Alice sends |<i><font color="#990000">b<sub>m</sub></font></i>> to
+Bob</font></tt></b></li>
+
+<li>
+<b><tt><font size=+1>Bob measures the incoming qubit in basis <i>t'<sub>m</sub></i>:</font></tt></b></li>
+
+<ol>
+<li>
+<b><tt><font size=+1>if Bob detects 0 then <i>b'<sub>m</sub></i>=0, <i>m=m+1</i>,
+and tells Alice "</font></tt></b><tt><font size=+1>detection<b>"</b></font></tt></li>
+
+<li>
+<b><tt><font size=+1>If Bob detects 1 then <i>b'<sub>m</sub></i>=1, <i>m=m+1</i>,
+and tells Alice "</font></tt></b><tt><font size=+1>detection<b>"</b></font></tt></li>
+
+<li>
+<tt><font size=+1><b>if Bob detects nothing then he tells Alice "</b>no
+detection<b>"</b></font></tt></li>
+</ol>
+</ol>
+
+<li>
+<b><tt><font size=+1>Alice's output <i>(b=b<sub>1</sub>b<sub>2</sub>...b<sub>n</sub>,t=t<sub>1</sub>t<sub>2</sub>...t<sub>n</sub>)</i></font></tt></b></li>
+
+<li>
+<b><tt><font size=+1>Bob's output <i>(b'=b'<sub>1</sub>b'<sub>2</sub>...b'<sub>n</sub>,t'=t'<sub>1</sub>t'<sub>2</sub>...t'<sub>n</sub>)</i></font></tt></b></li>
+</ol>
+<font size=+1>The way the BB84 quantum transmission has been implemented
+can be seen <a href="realbb84.html">here</a>.</font>
+<h1>
+<b><font size=+2>Simple Observations</font></b></h1>
+<font size=+1>The BB84 quantum transmission has the following properties
+(over perfect quantum channels) that can be used to enforce the security
+of quantum key distribution:</font>
+<ul>
+<li>
+<font size=+1>If for the qubit in position <i>i </i>we have that <i>t'<sub>i</sub>=t<sub>i</sub></i>
+then <i>b'<sub>i</sub>=b<sub>i</sub> ,</i></font></li>
+
+<li>
+<font size=+1>If for&nbsp; the qubit in position <i>i </i>we have that
+<i>t'<sub>i</sub>&lt;>t<sub>i
+</sub></i>then
+<i>Pr{b'<sub>i</sub>=b<sub>i</sub>}=1/2</i>.</font></li>
+</ul>
+<font size=+1>Quantum key distribution produces a secret-key from the positions
+<i>i
+</i>for
+which <i>t'<sub>i</sub>=t<sub>i.</sub></i> Moreover, if an eavesdropper
+tries to get information about <i>b<sub>i</sub></i> then the result will
+be that <i>Pr{b'<sub>i</sub>=b<sub>i</sub>}&lt;&lt;1</i> which can be detected
+by Alice and Bob.</font>
+<p><font size=+1>The best measurement for extracting as much information
+as possible about <i>b<sub>i </sub></i>is the measurement in the Breidbart
+basis: {<i>cos(</i></font>&para;<font size=+1><i>/8)</i>|<b><font color="#3333FF">0</font></b>>
++ <i>sin(</i></font>&para;<font size=+1><i>/8)</i>|<b><font color="#3333FF">1</font></b>>,
+-<i>sin(</i></font>&para;<font size=+1><i>/8)</i>|<b><font color="#3333FF">0</font></b>>
++ <i>cos(</i></font>&para;<font size=+1><i>/8)</i>|<b><font color="#3333FF">1</font></b>>}.
+Using the Breidbart measurement one can get the right bit with probability
+<i>cos<sup>2</sup>(</i></font>&para;<font size=+1><i>/8)</i>
+which is about 85%.</font>
+<p>
+<hr WIDTH="100%">
+<br>&nbsp;
+</body>
+
+<!-- Mirrored from www.brics.dk/~salvail/qrypto/doc/QuCrypt/bb84coding.html by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 03 May 2011 16:05:15 GMT -->
+</html>

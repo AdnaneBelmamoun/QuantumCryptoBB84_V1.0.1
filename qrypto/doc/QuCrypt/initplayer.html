@@ -1,0 +1,135 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+
+<!-- Mirrored from www.brics.dk/~salvail/qrypto/doc/QuCrypt/initplayer.html by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 03 May 2011 16:04:59 GMT -->
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.76 [en] (X11; U; IRIX 6.5 IP32) [Netscape]">
+</head>
+<body text="#000000" bgcolor="#FF9900" link="#000099" vlink="#3366FF" alink="#000088">
+
+<center>
+<h1>
+<font size=+2>Initiator Player</font></h1></center>
+<font size=+1>The initiator player is the party who initiates the execution
+of a quantum protocol. It connects to the initiator server and expects
+a connection from the responder player. Once those connections are established
+the initiator player sends the description of the protocol together with
+the selected parameters to the <a href="respplayer.html">responder player</a>.
+If the parameters are accepted by the <a href="respplayer.html">responder
+player</a> then the execution is started.&nbsp; Therefore, the initiator
+player is responsible to select both the protocol and the configuration
+before a connection with the responder player is established.&nbsp; When
+launched, the initiator player looks like that:</font>
+<center>
+<p><img SRC="initplayer-2.gif" HSPACE=3 VSPACE=3 BORDER=3 height=403 width=420></center>
+
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<p><font size=+1>The initiator player window contains 4 groups of items
+as follow:</font>
+<p><i><font size=+1>Parties Identity:</font></i>
+<ul>
+<li>
+<font size=+1><b>My identity</b> is a string for the identification of
+the initator player. The initiator player is usually called Alice in the
+litterature but anything can do.</font></li>
+
+<li>
+<font size=+1><b>Through port</b> is the port number at which the <a href="respplayer.html">responder
+player</a> should connect with the initiator player.&nbsp; The initiator
+player should therefore be <i>launched before</i> the <a href="respplayer.html">responder
+player</a>.</font></li>
+</ul>
+<i><font size=+1>Server Identity:</font></i>
+<ul>
+<li>
+<font size=+1><b>Server IP</b> is the IP address for the <a href="initserver.html">initiator
+server</a>.</font></li>
+
+<li>
+<font size=+1><b>Port</b> is the port number at which the initiator player
+will connect to the <a href="initserver.html">initiator server</a>. The
+initiator player should therefore be launched after the <a href="initserver.html">initiator
+server</a>.</font></li>
+</ul>
+
+<p><br><i><font size=+1>Protocol Configuration:</font></i>
+<ul>
+<li>
+<font size=+1><b>Protocol's selection list </b>is the list of available
+protocols for the next execution. It allows the initiator player to select
+one protocol among a list of <a href="supprotocols.html">supported protocols</a>.
+Next time the <i>start button</i> is pressed the selected protocol will
+be executed with the next connecting <a href="respplayer.html">responder
+player</a>.</font></li>
+
+<li>
+<font size=+1><b>Protocol's configuration button </b>allows to configure
+the selected protocol for the next execution. The values will be sent to
+the <a href="respplayer.html">responder player</a> upon connection.&nbsp;
+Configuration must take place before starting the player in order for the
+changes to take place.</font></li>
+
+<li>
+<font size=+1><b>Inspect button</b> allows to see the values set for all
+parameters of the selected protocol. This does not allow to modify them.</font></li>
+
+<li>
+<font size=+1><b>Output selection button</b> allows to set or unset the
+HTML output generation. When the button indicates <i>No Output</i> then
+no output will be generated after the execution. When the button indicates
+<i>HTML
+output</i> then the output of the next execution will be available from
+<a href="../../templates/initiator/index.html">index file</a> of the previously
+selected template directory. The&nbsp; valid template directory&nbsp; provided
+with the software is located in <b><tt>qrypto/templates/initiator</tt></b>
+for the initiator player's outpout.</font></li>
+
+<li>
+<font size=+1><b>Clean up button </b>allows to remove some executions from
+the <a href="../../templates/initiator/index.html">index file</a> of the
+selected template directory for HTML output generation.</font></li>
+</ul>
+<i><font size=+1>Actions:</font></i>
+<ul>
+<li>
+<font size=+1><b>start/stop button</b> initiates and stops action. <i>Start</i>
+must be pressed after the protocol has been selected and parametrized.&nbsp;
+It does the following:</font></li>
+
+<ul>
+<li>
+<font size=+1>Connect to the initiator server,</font></li>
+
+<li>
+<font size=+1>Wait for the responder player to connect,</font></li>
+
+<li>
+<font size=+1>Upon connection, the selected protocol is sent to the responder
+player.</font></li>
+
+<li>
+<font size=+1>If the protocol has been accepted by the responder player
+then the initiator player tells the initiator server to initiate a quantum
+transmission of the chosen type,</font></li>
+
+<li>
+<font size=+1>The protocol is executed.</font></li>
+
+<li>
+<font size=+1>After the execution the player stops automatically.</font></li>
+</ul>
+
+<li>
+<font size=+1><b>progress bar</b>&nbsp; indicates the progress and the
+protocol phase currently executed.</font></li>
+</ul>
+
+</body>
+
+<!-- Mirrored from www.brics.dk/~salvail/qrypto/doc/QuCrypt/initplayer.html by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 03 May 2011 16:05:01 GMT -->
+</html>

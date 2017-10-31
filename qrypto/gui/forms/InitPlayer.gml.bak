@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<TARGET	source="InitPlayer.java"
+>
+	<ScalingLayout
+		layout="417,376,423,414"
+	/>
+	<TextArea
+		layout="12,4,380,132"
+		maxLayout="12,4,380,132"
+		id="textarea"
+		doubleBuffered="true"
+		editable="false"
+		lineWrap="true"
+		text=""
+	/>
+	<Group
+		layout="4,304,408,64"
+		maxLayout="8,304,412,65"
+		text="Actions"
+	>
+		<ScalingLayout
+			layout="408,64,412,65"
+		/>
+		<ProgressBar
+			layout="220,40,180,12"
+			maxLayout="220,40,180,12"
+			id="progressBar"
+			border="RaisedBevelBorder"
+			foreground="ff19ff1c"
+			name="progressBar"
+			string="0%"
+		/>
+		<RadioButton
+			layout="16,16,88,40"
+			maxLayout="16,16,88,40"
+			id="startButton"
+			contentAreaFilled="true"
+			label="Démarrer"
+			selectedIcon="radioSelected.gif"
+			pressedIcon="radioPressed.gif"
+			icon="radio.gif"
+			actionCommand="a RadioButton"
+			events="actionPerformed"
+		/>
+		<RadioButton
+			layout="120,20,76,36"
+			maxLayout="120,20,76,36"
+			id="stopButton"
+			label="Arreter"
+			selectedIcon="radioSelected.gif"
+			pressedIcon="radioPressed.gif"
+			icon="radio.gif"
+			actionCommand="stopButton"
+			borderPainted="false"
+			events="actionPerformed"
+		/>
+		<Label
+			layout="224,12,172,32"
+			maxLayout="228,12,172,32"
+			id="progressLabel"
+			horizontalTextPosition="11"
+			enabled="true"
+			horizontalAlignment="10"
+			text=""
+			requestFocusEnabled="true"
+			doubleBuffered="false"
+			foreground="ff000000"
+			debugGraphicsOptions="0"
+			opaque="false"
+		/>
+	</Group>
+	<Group
+		layout="4,236,408,68"
+		maxLayout="4,236,409,69"
+		text="Configuration du Protocol Quantique "
+	>
+		<ScalingLayout
+			layout="408,68,409,69"
+		/>
+		<Button
+			layout="328,40,68,24"
+			maxLayout="328,40,68,24"
+			id="cleanup"
+			label="Nettoyer"
+			border="RaisedBevelBorder"
+			toolTipText="Permet de nettoyer le fichier d'historique"
+			verticalAlignment="0"
+			events="actionPerformed"
+		/>
+		<Button
+			layout="328,12,68,24"
+			maxLayout="328,12,68,24"
+			id="outputFileButton"
+			label="Sortie"
+			border="RaisedBevelBorder"
+			toolTipText="selectionner un répertoir d'entrée"
+			events="actionPerformed"
+		/>
+		<Button
+			layout="256,40,68,24"
+			maxLayout="256,40,68,24"
+			id="inspect"
+			label="Vérifier config"
+			border="RaisedBevelBorder"
+			toolTipText="Pour vérifier les configurations"
+			actionCommand="Inspect"
+			events="actionPerformed"
+		/>
+		<Button
+			layout="256,12,68,24"
+			maxLayout="256,12,68,24"
+			id="configButton"
+			borderPainted="true"
+			label="Configurer"
+			border="RaisedBevelBorder"
+			autoscrolls="false"
+			opaque="true"
+			horizontalTextPosition="11"
+			icon="vcontrol.gif"
+			selectedIcon="tools.gif"
+			toolTipText="config protocol settings"
+			font="Serif-bold-12"
+			events="actionPerformed"
+		/>
+		<ComboBox
+			layout="8,24,240,24"
+			maxLayout="8,24,240,24"
+			id="protSelection"
+			name="Sélection du Protocol Quantique"
+			editable="false"
+			toolTipText="Veuillez sélèctionner un Protocole Quantique avant de continuer "
+			actionCommand="newProtocol"
+			events="itemStateChanged"
+		/>
+	</Group>
+	<Group
+		layout="4,148,220,88"
+		maxLayout="4,148,221,89"
+		text="Identitées des parties"
+	>
+		<ScalingLayout
+			layout="220,88,221,89"
+		/>
+		<Label
+			layout="12,56,100,20"
+			maxLayout="12,56,100,20"
+			text="Depuis le port:"
+		/>
+		<Label
+			layout="16,16,88,24"
+			maxLayout="16,16,88,24"
+			text="Mon identitée est:"
+		/>
+		<TextField
+			layout="104,16,96,24"
+			maxLayout="104,16,96,24"
+			id="myIdentity"
+			text="ALICE OU ZAYNAB"
+		/>
+		<TextField
+			layout="104,52,96,24"
+			maxLayout="104,52,96,24"
+			id="clientPort"
+			text="1730"
+			toolTipText="port par defaut"
+		/>
+	</Group>
+	<Group
+		layout="224,148,188,88"
+		maxLayout="224,148,189,89"
+		text="Identitée du serveur"
+		name=""
+	>
+		<ScalingLayout
+			layout="188,88,189,89"
+		/>
+		<TextField
+			layout="76,20,101,24"
+			maxLayout="76,20,101,24"
+			id="serverIP"
+			text="BelmamounAdnane"
+		/>
+		<Label
+			layout="8,20,64,24"
+			maxLayout="8,20,64,24"
+			text="IP du Serveur:"
+		/>
+		<Label
+			layout="40,52,36,24"
+			maxLayout="40,52,36,24"
+			autoscrolls="false"
+			verticalAlignment="0"
+			text="Port du Serveur:"
+		/>
+		<TextField
+			layout="76,52,101,24"
+			maxLayout="76,52,101,24"
+			id="serverPort"
+			text="1630"
+		/>
+	</Group>
+	<ScrollPane
+		layout="8,4,404,140"
+		maxLayout="8,4,404,140"
+		id="scrollpane"
+		autoscrolls="true"
+		enabled="true"
+	/>
+</TARGET>

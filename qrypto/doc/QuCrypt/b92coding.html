@@ -1,0 +1,187 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+
+<!-- Mirrored from www.brics.dk/~salvail/qrypto/doc/QuCrypt/b92coding.html by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 03 May 2011 16:05:15 GMT -->
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.76 [en] (X11; U; IRIX 6.5 IP32) [Netscape]">
+</head>
+<body text="#000000" bgcolor="#FF9900" link="#000099" vlink="#3366FF" alink="#000088">
+
+<center><b><font size=+4>The B92 Quantum Coding Scheme</font></b></center>
+
+<p><font size=+1>The B92 quantum coding scheme is similar to the <a href="bb84coding.html">BB84
+coding scheme</a> but used only 2 out of the 4 BB84 states.&nbsp; It encodes
+classical bits in two non-orthogonal BB84 states.&nbsp;&nbsp; Since no
+measurement can disinguish two non-orthogonal quantum states, it is impossible
+to identify the bit with certainty. Moreover, any attempt to learn the
+bit will modify the state in a noticeable way. This is the basic idea behind
+the quantum key distribution protocol B92 (see Bennett in <i>Journal for
+XXXX, vol. w no. W</i>). By contrast to the BB84 case, the B92 coding scheme
+allows the receiver to learn whenever he gets the bit sent without further
+discussion with Alice. Since it uses only 2 quantum states, the B92 coding
+scheme is sometimes easier to implement. However, the security it provides
+is more difficult to establish&nbsp; in certain experimental settings and
+very often turns out to be totally insecure.</font>
+<p><font size=+1>The B92 coding scheme, unlike the BB84 scheme,&nbsp; uses
+a one-to-one correspondance between classical bits and quantum states.&nbsp;
+In order to send bit <b><i><font color="#009900">b</font></i></b>, Alice
+prepares a photon in the following quantum state:</font>
+<center>
+<p><img SRC="b92.jpg" height=133 width=169></center>
+
+<p><font size=+1>These two states correspond to the BB84 <tt>|<b><font color="#990000">0</font></b>>
+</tt>and<tt>
+|<b><font color="#0000FF">0</font></b>> </tt>respectievely<tt>.
+</tt>On
+the receiving end, a measurement in a random BB84 basis (i.e. the "</font><b><tt><font color="#990000"><font size=+4>+</font></font></tt></b><font size=+1>"
+or the "</font><b><tt><font color="#0000FF"><font size=+4>x</font></font></tt></b><font size=+1>"&nbsp;
+basis) is performed. According to the the outcome, the received bit <b><i><font color="#009900">b'</font></i></b>
+is set to be:</font>
+<center>
+<p><img SRC="b92rec.jpg" height=170 width=265></center>
+
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<p><font size=+1>Encodeing classical information over the quantum channel
+is usually implemented by the transmission of photons in some polarization
+states. The direction of the polarization encodes a classical bit. In the
+B92 coding scheme, the classical bit <b><i><font color="#009900">b=0</font></i></b>
+is encoded by a photon with <font color="#000000">horizontal polarization</font>
+and the classical bit <b><i><font color="#009900">b=1</font></i></b> is
+encoded by a photon with polarization angle 45degrees.</font>
+<p><font size=+1>According to quantum mechanics, it is impossible to distinguish
+with certainty two non-orthogonal quantum states.&nbsp; Moreover, the more
+one tries to distinguish the two states, the more the states get disturbed.
+Follow this link for more information about
+<a href="vnm.html">quantum measurements</a>.</font>
+<p><font size=+1>As for the BB84 coding scheme, we define the following
+measurements that are going to be executed by the legitimate receiver of
+B94 qubits:</font>
+<ul>
+<li>
+<font size=+1>"</font><b><tt><font color="#990000"><font size=+4>+</font></font></tt></b><font size=+1>"
+denotes the Von Neumann measurement allowing to distinguish perfectly between
+<tt>|</tt></font><tt><b><font color="#990000"><font size=+2>0</font></font></b><font size=+1>></font></tt><font size=+1>
+and <tt>|</tt></font><tt><b><font color="#990000"><font size=+2>1</font></font></b><font size=+1>></font></tt><font size=+1>.
+This measurement is also called <i>measurement in the rectilinear basis</i>.</font></li>
+
+<li>
+<font size=+1>"</font><b><tt><font color="#0000FF"><font size=+4>x</font></font></tt></b><font size=+1>"
+denotes the Von Neumann measurement allowing to distinguish perfectly between
+<tt>|</tt></font><tt><b><font color="#0000FF"><font size=+2>0</font></font></b><font size=+1>></font></tt><font size=+1>
+and <tt>|</tt></font><tt><b><font color="#0000FF"><font size=+2>1</font></font></b><font size=+1>></font></tt><font size=+1>.
+This measurement is also called <i>measurement in the diagonal basis</i>.</font></li>
+</ul>
+<font size=+1>The receiver selects randomly to measure the incoming photon
+in the "</font><b><tt><font color="#990000"><font size=+4>+</font></font></tt></b><font size=+1>"
+or the "</font><b><tt><font color="#0000FF"><font size=+4>x</font></font></tt></b><font size=+1>"
+basis. Unlike in the BB84 case, if the outcome of the measurement is <tt>|</tt></font><tt><b><font color="#990000"><font size=+2>1</font></font></b><font size=+1>></font></tt><font size=+1>&nbsp;
+or&nbsp; <tt>|</tt></font><tt><b><font color="#0000FF"><font size=+2>1</font></font></b><font size=+1>></font></tt><font size=+1>
+then the receiver (assuming perfect transmission) can determine <b><i><font color="#009900">b</font></i></b>
+with certainty. In the other cases, the receiver recognizes a bad transmission<b><font color="#009900">
+?</font></b>.</font>
+<h1>
+<font size=+2>B92 Quantum Transmission</font></h1>
+<font size=+1>The B92 quantum transmission uses a subset of the <a href="bb84coding.html">BB84
+quantum states</a>. In the following, Alice output is an bit strings <i><font color="#009900">b</font></i>
+whereas Bob's output is <i><font color="#009900">b'</font> </i>in<i>&nbsp;
+{0,1,?}<sup>n</sup></i>.</font>
+<p><font face="Courier New,Courier"><b><font size=+1>Alice's input : n
+</font></b><font size=-1>(the
+length of the resulting transmission)</font></font>
+<br><b><font face="Courier New,Courier"><font size=+1>Bob's input&nbsp;&nbsp;
+: n</font></font></b>
+<br><font face="Courier New,Courier"><b><font size=+1>Alice's output: b
+</font></b><font size=-1>(the
+bits transmitted)</font></font>
+<br><font face="Courier New,Courier"><b><font size=+1>Bob's output&nbsp;
+: b'</font></b><font size=-1>(the bits obtained or <b><font color="#006600">?</font></b>)</font></font>
+<br>&nbsp;
+<ol>
+<li>
+<b><i><font size=+1>m = 0</font></i></b></li>
+
+<li>
+<tt><font size=+1><b>While</b> <b><i>m</i></b> &lt;&nbsp; <b><i>n</i>do:</b></font></tt></li>
+
+<ol>
+<li>
+<b><tt><font size=+1>Alice picks <i><font color="#009900">b<sub>m</sub></font></i>
+randomly in {0,1}</font></tt></b></li>
+
+<li>
+<b><tt><font size=+1>Bob picks <i>t'<sub>m</sub></i> random in {</font><font color="#3333FF"><font size=+2>+</font></font><font size=+1>,</font><font color="#990000"><font size=+2>X</font></font><font size=+1>}</font></tt></b></li>
+
+<li>
+<tt><b><font size=+1>if b<i><sub>m</sub> </i>= 1 then Alice sends </font></b><font size=+1>|</font><b><font color="#0000FF"><font size=+2>0</font></font></b><font size=+1>><b>
+to Bob</b></font></tt></li>
+
+<li>
+<tt><b><font size=+1>if b<i><sub>m</sub></i> = 0 then Alice sends </font></b><font size=+1>|</font><b><font color="#990000"><font size=+2>0</font></font></b><font size=+1>><b>
+to Bob</b></font></tt></li>
+
+<li>
+<b><tt><font size=+1>Bob measures the incoming qubit in basis <i>t'<sub>m</sub></i>:</font></tt></b></li>
+
+<ol>
+<li>
+<b><tt><font size=+1>if Bob detects 0 then <i><font color="#009900">b'<sub>m</sub></font></i>=<font color="#009900">?</font>,
+<i>m=m+1</i>,
+and tells Alice "</font></tt></b><tt><font size=+1>detection<b>"</b></font></tt></li>
+
+<li>
+<b><tt><font size=+1>If Bob detects 1 then <i><font color="#009900">b'<sub>m</sub></font></i>=<font color="#009900">0</font>
+if <i>t'<sub>m</sub>="</i></font><i><font color="#990000"><font size=+4>+</font></font><font size=+1>"</font></i><font size=+1>
+and <i><font color="#009900">b'<sub>m</sub></font></i>=<font color="#009900">1</font>
+of <i>t'<sub>m</sub>="</i></font><i><font color="#0000FF"><font size=+4>x</font></font><font size=+1>"</font></i><font size=+1>,
+<i>m=m+1</i>,
+and tells Alice "</font></tt></b><tt><font size=+1>detection<b>"</b></font></tt></li>
+
+<li>
+<tt><font size=+1><b>if Bob detects nothing then he tells Alice "</b>no
+detection<b>"</b></font></tt></li>
+</ol>
+</ol>
+
+<li>
+<b><tt><font size=+1>Alice's output <i><font color="#009900">b</font>=<font color="#009900">b<sub>1</sub>b<sub>2</sub>...b<sub>n</sub></font></i></font></tt></b></li>
+
+<li>
+<b><tt><font size=+1>Bob's output <i><font color="#009900">b'</font>=<font color="#009900">b'<sub>1</sub>b'<sub>2</sub>...b'<sub>n</sub></font></i></font></tt></b></li>
+</ol>
+<font size=+1>The way the B92 quantum transmission has been implemented
+in our experiment can be seen <a href="realb92.html">here</a>.</font>
+<h1>
+<b><font size=+2>Simple Observations</font></b></h1>
+<font size=+1>The B92 quantum transmission has the following properties
+(over perfect quantum channels) that can be used to enforce the security
+of quantum key distribution:</font>
+<ul>
+<li>
+<font size=+1>If for the qubit in position <i>i </i>we have that <i><font color="#009900">b'<sub>i&nbsp;</sub></font>
+&lt;> <b><font color="#009900">?</font></b> </i>then<i> <font color="#009900">b'<sub>i</sub></font>=<font color="#009900">b<sub>i</sub></font>,</i></font></li>
+
+<li>
+<font size=+1>For&nbsp; the qubit in position <i>i </i>we have that
+<i>Pr{<font color="#009900">b'<sub>i</sub></font>&lt;><b><font color="#009900">?</font></b>}=1/4</i>.</font></li>
+</ul>
+<font size=+1>Quantum key distribution produces a secret-key from the positions
+<i>i
+</i>for
+which <i><font color="#009900">b'<sub>i</sub></font>&lt;><b><font color="#009900">?</font></b>.
+</i>Moreover,
+if an eavesdropper tries to get information on <i><font color="#009900">b<sub>i
+</sub></font></i>then the result will be that <i>Pr{<font color="#009900">b'<sub>i</sub></font>=<font color="#009900">b<sub>i</sub></font>|<font color="#009900">b'<sub>i</sub></font>&lt;><b><font color="#009900">?</font></b>}&lt;&lt;1</i>
+which can be detected by Alice and Bob.</font>
+<p>
+<hr WIDTH="100%">
+<br>&nbsp;
+</body>
+
+<!-- Mirrored from www.brics.dk/~salvail/qrypto/doc/QuCrypt/b92coding.html by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 03 May 2011 16:05:25 GMT -->
+</html>

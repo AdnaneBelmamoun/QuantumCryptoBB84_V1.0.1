@@ -1,0 +1,140 @@
+***************************************************
+*****************New Execution*********************
+DATE:Tue Jul 11 22:49:57 GMT+00:00 2000
+MODULE:PlainB92
+***************************************************
+init: client sends the classname to server
+init:sends its identity.
+init: sends the responder identity
+init:Receiving OK from client:true
+Receiving 500 qubits.
+***************************************************
+*****************New Execution*********************
+DATE:Tue Jul 11 22:50:49 GMT+00:00 2000
+MODULE:PlainB92
+***************************************************
+init: client sends the classname to server
+init:sends its identity.
+init: sends the responder identity
+init:Receiving OK from client:true
+Receiving 500 qubits.
+***************************************************
+*****************New Execution*********************
+DATE:Thu Aug 24 23:00:10 GMT+00:00 2000
+MODULE:PlainB92
+***************************************************
+init: client sends the classname to server
+init:sends its identity.
+init: sends the responder identity
+init:Receiving OK from client:true
+Receiving 500 qubits.
+***************************************************
+*****************New Execution*********************
+DATE:Thu Aug 24 23:04:18 GMT+00:00 2000
+MODULE:PlainB92
+***************************************************
+init: client sends the classname to server
+init:sends its identity.
+init: sends the responder identity
+init:Receiving OK from client:true
+Receiving 500 qubits.
+***************************************************
+*****************New Execution*********************
+DATE:Thu Aug 24 23:32:30 GMT+00:00 2000
+MODULE:PlainB92
+***************************************************
+init: client sends the classname to server
+init:sends its identity.
+init: sends the responder identity
+init:Receiving OK from client:true
+Receiving 500 qubits.
+***************************************************
+*****************New Execution*********************
+DATE:Thu Aug 24 23:39:58 GMT+00:00 2000
+MODULE:PlainB92
+***************************************************
+init: client sends the classname to server
+init:sends its identity.
+init: sends the responder identity
+init:Receiving OK from client:true
+Receiving 500 qubits.
+***************************************************
+*****************New Execution*********************
+DATE:Thu Aug 24 23:41:38 GMT+00:00 2000
+MODULE:PlainB92
+***************************************************
+init: client sends the classname to server
+init:sends its identity.
+init: sends the responder identity
+init:Receiving OK from client:true
+Receiving 500 qubits.
+***************************************************
+*****************New Execution*********************
+DATE:Thu Aug 24 23:43:05 GMT+00:00 2000
+MODULE:PlainB92
+***************************************************
+init: client sends the classname to server
+init:sends its identity.
+init: sends the responder identity
+init:Receiving OK from client:true
+Receiving 500 qubits.
+***************************************************
+*****************New Execution*********************
+DATE:Thu Aug 24 23:44:17 GMT+00:00 2000
+MODULE:PlainB92
+***************************************************
+init: client sends the classname to server
+init:sends its identity.
+init: sends the responder identity
+init:Receiving OK from client:true
+Receiving 500 qubits.
+***************************************************
+*****************New Execution*********************
+DATE:Thu Aug 24 23:45:05 GMT+00:00 2000
+MODULE:PlainB92
+***************************************************
+init: client sends the classname to server
+init:sends its identity.
+init: sends the responder identity
+init:Receiving OK from client:true
+Receiving 500 qubits.
+***************************************************
+*****************New Execution*********************
+DATE:Thu Aug 24 23:46:05 GMT+00:00 2000
+MODULE:PlainB92
+***************************************************
+init: client sends the classname to server
+init:sends its identity.
+init: sends the responder identity
+init:Receiving OK from client:true
+Receiving 500 qubits.
+***************************************************
+*****************New Execution*********************
+DATE:Thu Aug 24 23:50:25 GMT+00:00 2000
+MODULE:PlainB92
+***************************************************
+init: client sends the classname to server
+init:sends its identity.
+init: sends the responder identity
+init:Receiving OK from client:true
+Receiving 500 qubits.
+***************************************************
+*****************New Execution*********************
+DATE:Thu Aug 24 23:52:02 GMT+00:00 2000
+MODULE:PlainB92
+***************************************************
+init: client sends the classname to server
+init:sends its identity.
+init: sends the responder identity
+init:Receiving OK from client:true
+Receiving 500 qubits.
+***************************************************
+*****************New Execution*********************
+DATE:Thu Aug 24 23:56:52 GMT+00:00 2000
+MODULE:PlainB92
+***************************************************
+init: client sends the classname to server
+init:sends its identity.
+init: sends the responder identity
+init:Receiving OK from client:true
+Receiving 500 qubits.

@@ -1,0 +1,132 @@
+<HTML>
+<!-- Created with the AnyJ Java Development Environment -->
+<!--          http://www.netcomputing.de               -->
+
+<!-- Mirrored from www.brics.dk/~salvail/qrypto/templates/responder/RawBB84/output2_1.html by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 03 May 2011 16:11:06 GMT -->
+<HEAD>
+  <TITLE>Result of the BB84 Quantum Transmission</TITLE>
+  <META name="description" content="">
+  <META name="keywords" content="">
+</HEAD>
+<BODY BGCOLOR="FFFFCC" TEXT="333333" LINK="0000FF" VLINK="FF99FF" ALINK="000088">
+<CENTER>
+<h1>Raw BB84 Quantum Transmission</h1>
+<b>(responder's side)</b>
+</CENTER>
+<BR>
+<br>
+The raw BB84 quantum transmission generates the raw material
+from which a secret-key will be distilled. It is a physical implementation 
+of the <a href="../../../doc/bb84coding.html">BB84 coding scheme</a>.
+
+<h2>Rhough Description</h2>
+
+A raw key is a sequence
+of classical bits from the which the final secret key should
+be distilled. A raw BB84 key is a sequence of transmitted pulses
+that have have been detected on the responder side. The pulses
+are prepared according to the BB84 quantum coding scheme:
+<UL>
+<LI> For each pulse <em>i</em>, the bit <em>b<sub>i</sub></em> 
+    to be transmitted 
+     is chosen <em>randomly</em> by the sender,
+<LI> A transmission basis <em>t<sub>i</sub></em> is chosen randomly among 
+     the rectilinear "<FONT COLOR="darkblue"><b>+</b></FONT>" 
+     and diagonal "<FONT COLOR="darkred"><tt><b>X</b></tt></FONT>" bases,
+<LI> A qubit in quantum state 
+     <b>|<em>b<sub>i</sub></em>><em><sub>t<sub>i</sub></sub></em></b> 
+     is sent
+     to the receiver,
+<LI> For each pulse, the receiver measures the qubit in a 
+     random basis <em>t'<sub>i</sub></em> 
+    (``<FONT COLOR="darkblue"><b>+</b></FONT>'' 
+  or ``<FONT COLOR="darkred"><tt><b>X</b></tt></FONT>'') and
+     records the classical one-bit outcome <em>b'<sub>i</sub></em>.
+</UL>
+<BR>
+The <em>raw key</em> is defined as the sequence 
+<em>b=b<sub>1</sub>,...,b<sub>n</sub></em> on the sender's
+side and <em>b'=b'<sub>1</sub>,...,b'<sub>n</sub></em> on the
+receiver's side for the detected pulses.
+In an ideal situation, the quantum transmission has the following
+property:
+<ul>
+<li> For all pulses <em>i</em> such that 
+     <em>t<sub>i</sub>=t'<sub>i</sub></em> we have
+     <em>b<sub>i</sub>=b'<sub>i</sub></em>.
+</ul>
+However, the quantum trasmission is not perfect and errors
+occur even when the basis <em>t<sub>i</sub>=t'<sub>i</sub></em>.
+More information on the physical implementation of the BB84
+coding scheme can be found <a href="../../../doc/qcoding.html">here</a>.
+<BR>
+<br>
+<h2>Settings</h2>
+Here are some information about the settings for that
+raw quantum transmission:
+<UL>
+<LI>This <B>BB84</B> quantum transmission is <B>
+<b><b>VIRTUAL</b></b>
+</B>
+<LI>My identity is:<B>
+<b>Bob<EM> (receiver)</EM></b>
+</B>
+<LI>The peer's identity is : <B>
+<b>Alice<EM> (sender)</EM></b>
+</B>
+<LI>My quantum channel server is located at IP address <b> 
+<b>brodchette/127.0.0.1</b>
+</b> and port number <b> 
+1631
+</b>.
+</UL>
+<BR>
+<BR>
+<h2>The Resulting Raw Key</h2>
+The resulting raw-key of <b>
+500
+</b> qubits is the following :
+<b><BR><BR><B><FONT COLOR=brown>0</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>1</FONT>&nbsp;<FONT COLOR=blue>1</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=blue>0</FONT>&nbsp;<FONT COLOR=brown>1</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=brown>0</FONT>&nbsp;<FONT COLOR=blue>1</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=brown>1</FONT>&nbsp;<FONT COLOR=blue>1</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=blue>1</FONT>&nbsp;&nbsp;&nbsp;&nbsp;<FONT COLOR=blue>1</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>0</FONT>&nbsp;<FONT COLOR=brown>1</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=brown>0</FONT>&nbsp;<FONT COLOR=brown>0</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>0</FONT>&nbsp;<FONT COLOR=blue>0</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=blue>0</FONT>&nbsp;<FONT COLOR=brown>1</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=blue>1</FONT>&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+<FONT COLOR=blue>0</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=blue>0</FONT>&nbsp;<FONT COLOR=brown>0</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=brown>0</FONT>&nbsp;<FONT COLOR=blue>1</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=blue>0</FONT>&nbsp;<FONT COLOR=brown>1</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=brown>1</FONT>&nbsp;<FONT COLOR=brown>0</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=brown>0</FONT>&nbsp;&nbsp;&nbsp;&nbsp;<FONT COLOR=brown>1</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=brown>0</FONT>&nbsp;<FONT COLOR=brown>0</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=blue>1</FONT>&nbsp;<FONT COLOR=brown>1</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=blue>0</FONT>&nbsp;<FONT COLOR=brown>0</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=brown>1</FONT>&nbsp;<FONT COLOR=blue>1</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=blue>1</FONT>&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+<FONT COLOR=blue>1</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=brown>0</FONT>&nbsp;<FONT COLOR=brown>0</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=blue>0</FONT>&nbsp;<FONT COLOR=brown>1</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=brown>1</FONT>&nbsp;<FONT COLOR=brown>0</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=blue>1</FONT>&nbsp;<FONT COLOR=brown>1</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=blue>0</FONT>&nbsp;&nbsp;&nbsp;&nbsp;<FONT COLOR=brown>0</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=blue>0</FONT>&nbsp;<FONT COLOR=brown>1</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=brown>0</FONT>&nbsp;<FONT COLOR=brown>1</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>0</FONT>&nbsp;<FONT COLOR=blue>0</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=blue>1</FONT>&nbsp;<FONT COLOR=brown>0</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=brown>0</FONT>&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+<FONT COLOR=brown>1</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=brown>0</FONT>&nbsp;<FONT COLOR=blue>0</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=blue>1</FONT>&nbsp;<FONT COLOR=blue>1</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>0</FONT>&nbsp;<FONT COLOR=brown>0</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=blue>1</FONT>&nbsp;<FONT COLOR=blue>0</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=blue>0</FONT>&nbsp;&nbsp;&nbsp;&nbsp;<FONT COLOR=brown>0</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=brown>1</FONT>&nbsp;<FONT COLOR=brown>1</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>1</FONT>&nbsp;<FONT COLOR=blue>1</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>1</FONT>&nbsp;<FONT COLOR=blue>1</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=brown>0</FONT>&nbsp;<FONT COLOR=blue>0</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=brown>1</FONT>&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+<FONT COLOR=brown>1</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=brown>1</FONT>&nbsp;<FONT COLOR=blue>0</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=blue>1</FONT>&nbsp;<FONT COLOR=blue>0</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=blue>0</FONT>&nbsp;<FONT COLOR=brown>1</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>0</FONT>&nbsp;<FONT COLOR=blue>0</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=brown>0</FONT>&nbsp;&nbsp;&nbsp;&nbsp;<FONT COLOR=blue>1</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=blue>1</FONT>&nbsp;<FONT COLOR=brown>0</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>0</FONT>&nbsp;<FONT COLOR=brown>1</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=brown>1</FONT>&nbsp;<FONT COLOR=blue>1</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=brown>0</FONT>&nbsp;<FONT COLOR=brown>0</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=blue>0</FONT>&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+<BR>
+<FONT COLOR=brown>1</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>1</FONT>&nbsp;<FONT COLOR=brown>1</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>1</FONT>&nbsp;<FONT COLOR=brown>1</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=brown>1</FONT>&nbsp;<FONT COLOR=brown>1</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>0</FONT>&nbsp;<FONT COLOR=brown>1</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=blue>1</FONT>&nbsp;&nbsp;&nbsp;&nbsp;<FONT COLOR=blue>0</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=blue>1</FONT>&nbsp;<FONT COLOR=blue>1</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=brown>1</FONT>&nbsp;<FONT COLOR=blue>0</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=blue>0</FONT>&nbsp;<FONT COLOR=blue>1</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=blue>0</FONT>&nbsp;<FONT COLOR=blue>0</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=brown>1</FONT>&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+<FONT COLOR=brown>0</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=brown>1</FONT>&nbsp;<FONT COLOR=blue>0</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>1</FONT>&nbsp;<FONT COLOR=brown>1</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>1</FONT>&nbsp;<FONT COLOR=brown>1</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=brown>0</FONT>&nbsp;<FONT COLOR=blue>1</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=brown>0</FONT>&nbsp;&nbsp;&nbsp;&nbsp;<FONT COLOR=blue>0</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>0</FONT>&nbsp;<FONT COLOR=blue>0</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=blue>1</FONT>&nbsp;<FONT COLOR=blue>1</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=brown>0</FONT>&nbsp;<FONT COLOR=brown>0</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=blue>0</FONT>&nbsp;<FONT COLOR=blue>1</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=blue>0</FONT>&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+<FONT COLOR=blue>0</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>1</FONT>&nbsp;<FONT COLOR=brown>1</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=blue>1</FONT>&nbsp;<FONT COLOR=blue>1</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=brown>0</FONT>&nbsp;<FONT COLOR=blue>1</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=brown>0</FONT>&nbsp;<FONT COLOR=blue>1</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>1</FONT>&nbsp;&nbsp;&nbsp;&nbsp;<FONT COLOR=blue>1</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>0</FONT>&nbsp;<FONT COLOR=blue>1</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=blue>1</FONT>&nbsp;<FONT COLOR=brown>1</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=blue>1</FONT>&nbsp;<FONT COLOR=brown>0</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=brown>1</FONT>&nbsp;<FONT COLOR=blue>0</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>0</FONT>&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+<FONT COLOR=blue>1</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=blue>1</FONT>&nbsp;<FONT COLOR=brown>0</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=blue>0</FONT>&nbsp;<FONT COLOR=brown>0</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=blue>1</FONT>&nbsp;<FONT COLOR=blue>1</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=brown>0</FONT>&nbsp;<FONT COLOR=brown>0</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=blue>0</FONT>&nbsp;&nbsp;&nbsp;&nbsp;<FONT COLOR=blue>0</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=blue>0</FONT>&nbsp;<FONT COLOR=blue>0</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=blue>1</FONT>&nbsp;<FONT COLOR=blue>1</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>0</FONT>&nbsp;<FONT COLOR=brown>0</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=blue>1</FONT>&nbsp;<FONT COLOR=brown>0</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=blue>1</FONT>&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+<FONT COLOR=blue>0</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=blue>1</FONT>&nbsp;<FONT COLOR=blue>1</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=blue>1</FONT>&nbsp;<FONT COLOR=brown>1</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=brown>1</FONT>&nbsp;<FONT COLOR=brown>1</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=blue>0</FONT>&nbsp;<FONT COLOR=brown>0</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=brown>0</FONT>&nbsp;&nbsp;&nbsp;&nbsp;<FONT COLOR=brown>0</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=brown>0</FONT>&nbsp;<FONT COLOR=brown>0</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=blue>0</FONT>&nbsp;<FONT COLOR=blue>1</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=blue>1</FONT>&nbsp;<FONT COLOR=blue>1</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=blue>1</FONT>&nbsp;<FONT COLOR=blue>1</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=blue>1</FONT>&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+<BR>
+</B><BR></b>
+Where,
+<ul>
+<li> <FONT COLOR="darkblue"><b>Blue</b></FONT> denotes 
+     a qubit in basis "<FONT COLOR="darkblue"><b>+</b></FONT>"
+     (the rectilinear basis) and
+<li> <FONT COLOR="darkred"><b>Red</b></FONT> 
+      means a qubit in basis "<FONT COLOR="darkred"><b><tt>X</tt></b></FONT>"
+     (the diagonal basis).
+</ul>
+
+<h2>Statistics</h2>
+Here are some statistics related to this execution:
+<UL>
+<LI>The quantum transmission generated <b>
+500
+</b> qubits,
+<LI> A total of <b>
+500
+</b> pulses were transmitted 
+<LI>The raw transmission rate is <b>
+<b>1.0</b>
+</b> pulses per bit of raw-key. 
+<LI>The transmission took <b>
+<b>1.996</b>
+</b> seconds to be completed.
+</UL>
+
+</BODY>
+
+<!-- Mirrored from www.brics.dk/~salvail/qrypto/templates/responder/RawBB84/output2_1.html by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 03 May 2011 16:11:06 GMT -->
+</HTML>

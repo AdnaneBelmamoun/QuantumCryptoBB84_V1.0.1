@@ -1,0 +1,159 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+
+<!-- Mirrored from www.brics.dk/~salvail/qrypto/templates/responder/BB84/output0_1.html by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 03 May 2011 16:04:47 GMT -->
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.5 [en] (X11; I; Linux 2.0.34 i686) [Netscape]">
+   <title>Result of BB84 secret-key agreement</title>
+<!-- Created with the AnyJ Java Development Environment -->
+<!--          http://www.netcomputing.de                -->
+<!-- the holes are: myid, peerid, errorestimate, toleratederror -->
+<!-- blocksize, passes, results, bits,confirm, totdisclosed     -->
+</head>
+
+<BODY BGCOLOR="FFFFCC" TEXT="333333" LINK="0000FF" VLINK="FF99FF" ALINK="000088">
+<center>
+<h1>BB84 Secret-Key Distribution</h1>
+<b>(responder's side)</b>
+</center>
+<br>
+<br>
+From a reconciled BB84 key, Alice and Bob obtain their final secret
+key by applying
+<a href="../../../doc/pa.html">privacy amplification</a>.
+The resulting secret-key can then be used to encrypt
+private messages to be sent over an insecure
+channel.
+
+
+<h2>Reconciled BB84 Key</h2>
+
+A reconciled BB84 key is a key shared by Alice and Bob but
+not perfectly secret. An eavesdropper may obtain information
+about the key by:
+<ul>
+<li>Eavesdropping the quantum channel during quantum transmission and/or
+<li> Listening the public discussion taking place during reconciliation and
+confirmation.
+</ul>
+A reconciled key of size <b>
+610
+</b> has been generated during reconciliation:
+<ul>
+<li>
+<a href="../RecBB84/output0_1.html">RecBB84</a>
+</ul>
+A total of <b>
+128
+</b>
+parity bits were revealed during reconciliation and <b>
+10
+</b>
+were revealed during confirmation. Next, privacy amplification
+is applied in order to remove the eavesdropper's
+information about the reconciled key. The total amount
+of leaked information is <b><em>d=</em>
+138
+</b> parity bits. 
+<br><br>
+
+<h2>The Final Secret-Key Obtained From Privacy Amplification</h2>
+
+Let <em>R</em> be the reconciled key of length <em>m</em>.
+Let <em>d</em> be the number of parity bits disclosed 
+during reconciliation and confirmation. 
+<a href="../../../doc/pa.html">Privacy amplification</a>
+is the process of applying a <em>random</em> and publicly 
+known hashing function 
+<em>f:{0,1}<sup>m</sup>->{0,1}<sup>m-d-s</sup></em> upon the
+reconciled key. The parameter <em>s</em> is a security parameter
+which, as it grows, results in a more secret final key <em>S</em>.
+The final secret-key is then simply computed as <em>S=f (R)</em>.
+
+For this execution we have,
+<ul>
+<li> <b><em>m=</em>
+610
+</b>,  
+<li><b><em>d=</em>
+138
+</b>,
+<li><b><em>s=</em>
+0.05
+*<em>m</em>=
+31
+</b>.
+</ul>
+A randomly selected hashing function 
+<em>f:{0,1}<sup>
+610
+</sup>->{0,1}<sup>
+441
+</sup></em> is applied privately by
+Bob
+and 
+Alice
+thus producing the final secret-key
+<em>f (R)</em>: 
+<b>
+<FONT COLOR=darkgreen><BR><BR><B>11001&nbsp;01101&nbsp;01101&nbsp;00100&nbsp;11101&nbsp;&nbsp;10110&nbsp;01110&nbsp;01101&nbsp;00001&nbsp;11111&nbsp;&nbsp;<BR>
+11000&nbsp;01101&nbsp;10001&nbsp;00011&nbsp;01011&nbsp;&nbsp;01110&nbsp;10101&nbsp;11000&nbsp;01010&nbsp;01111&nbsp;&nbsp;<BR>
+11000&nbsp;01011&nbsp;00001&nbsp;01110&nbsp;01101&nbsp;&nbsp;11111&nbsp;11001&nbsp;10110&nbsp;00101&nbsp;10001&nbsp;&nbsp;<BR>
+00001&nbsp;10110&nbsp;11100&nbsp;10101&nbsp;10001&nbsp;&nbsp;10000&nbsp;00101&nbsp;10101&nbsp;11100&nbsp;01100&nbsp;&nbsp;<BR>
+11010&nbsp;11101&nbsp;01001&nbsp;00010&nbsp;10001&nbsp;&nbsp;10100&nbsp;10101&nbsp;10111&nbsp;00111&nbsp;00110&nbsp;&nbsp;<BR>
+<BR>01100&nbsp;00111&nbsp;00001&nbsp;01010&nbsp;01110&nbsp;&nbsp;10100&nbsp;01000&nbsp;00001&nbsp;00000&nbsp;11101&nbsp;&nbsp;<BR>
+11101&nbsp;01010&nbsp;00000&nbsp;00011&nbsp;01110&nbsp;&nbsp;11001&nbsp;01000&nbsp;11111&nbsp;11011&nbsp;11010&nbsp;&nbsp;<BR>
+10010&nbsp;10111&nbsp;11010&nbsp;11100&nbsp;00000&nbsp;&nbsp;11111&nbsp;01000&nbsp;10100&nbsp;01000&nbsp;11010&nbsp;&nbsp;<BR>
+00001&nbsp;11111&nbsp;01001&nbsp;11001&nbsp;00100&nbsp;&nbsp;11110&nbsp;00110&nbsp;00010&nbsp;1</B><BR></FONT>
+</b>
+<br>
+of length <b>
+441
+</b> bits. 
+<br>
+<BR><BR><BIG><b>Secret Transmission</b></BIG>:
+<UL>
+<LI><PRE><tt>Ciphertext sent :<B><font color=red>ýý$73|Uo|D5&jIdp]D91ýj6?-k%g5;}d&6X&H*Bsm</font></B></tt></PRE>
+<LI><PRE><tt>Decryption key  :<B><font color=green>LjVDf*#9%=Et9:1&+3`ikýDLY?r1lB.6TE,Sü~:+ü</font></B></tt></PRE>
+<LI><PRE><tt>Received message:<B><font color=blue>01234567890123456789012345678901234567890</font></B></tt></PRE>
+</UL><BR><BR>
+
+
+<h2>Statistics & Overview</h2>
+Here are some statistics about this BB84 
+secret-key agreement.
+<ul>
+<li>This secret-key of
+<b>
+441
+</b>
+bits has been obtained from
+<b> 
+1500
+</b>
+qubits of raw key for a <em>secret-key rate</em> of
+<b>
+0.294
+</b>
+bit/qubit (of raw key).
+<li>A total number of <b>
+1500
+</b> pulses were transmitted for
+    a final key of <b>
+441
+</b> bits,  
+    each bit of final key required <b>
+3.401360544217687
+</b>  pulses in average.
+<li> An eavesdropper applying some
+     <A HREF="../../../doc/realattack.html">restricted quantum attacks</a>
+     is left with no more than <b>
+0.009516421218971786
+</b> bits of Shannon information about the secret-key.
+</ul>
+<br>
+</body>
+
+<!-- Mirrored from www.brics.dk/~salvail/qrypto/templates/responder/BB84/output0_1.html by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 03 May 2011 16:04:49 GMT -->
+</html>

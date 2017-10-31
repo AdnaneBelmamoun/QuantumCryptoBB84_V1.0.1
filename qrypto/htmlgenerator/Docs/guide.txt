@@ -1,0 +1,196 @@
+htmlGenerator Documentation
+---------------------------
+
+The htmpGenerator is used to fill out information in html
+templates. In the templates a number of holes are defined. The
+htmlGenerator will plug these holes. Some of the holes can have
+attributes. 
+A hole should stand by itself on a line because the whole line is
+changed during plug.
+Note that the order of the attributes does matter -- they should come
+in the same order as they are written in the attribute list for the
+actual plug. 
+
+If you want to make a hole of type x in a template then the syntax is
+   <!-- HOLE:x attr1=val1 attr2=val2 attr3=val3 //-->
+
+There is support for having various detail levels. If you have 4
+templates for the same protocol (the names of the templates should be
+template1.html, template2.html, template3.html, template4.html), then
+the htmlGenerator will fill out all of them and generate the files
+outputX_1.html, outputX_2.html, outputX_3.html, outputX_4.html where X
+is the experiment number. The index page will be updated with a link to
+outputX_1.html. Some special holes are used for navigating between the
+detail levels.
+
+Often a protocol consists of a number of subprotocols. Therefore this
+is supported by htmlGenerator. There is a hole for making a link to a
+subprotocol and holes for navigating between the subprotocols.
+
+It is assumed that each protocol has its own directory and that they
+all have the same parent directory. In a protocol directory the
+template files and the generated html files are located.
+
+The page index.html in the parent directory of the protocols contains
+a list of all the experiments. When the html for a new experiment is
+generated a link to the first page of the experiment will
+automatically be inserted in index.html a the point just below the
+first line containing
+<!-- HOLE:NEXTENTRY //-->
+
+In htmlGenerator a framework has been build around the 'library'. When
+run a window will show up. Here you can generate random data and fill
+that into the templates. There will also be generated an array of
+objects. All this is put into a hashtable that is given as an argument
+to the library.
+
+The hashtable consists of one data array and one object array for each
+instance of each protocol that is used in the (possible composite)
+protocol. Therefore, when the htmlGenerator is given this hashtable it
+has all the information it needs.
+
+htmlGenerator has been coded in Java 1.2.
+
+
+Guide to plugs
+---------------
+Here is a list of all possible holes and a description of the hole. It
+has been made lookup friendly, so therefore there is lots of
+redundancy.
+
+In the following {attr} means the value that the attribute attr is
+set to. [attr] means that the attribute attr is optional.
+
+
+ o Name:	HOLE:previous
+   Attributes:	[name], [img]
+   Example:	<!-- HOLE:previous name=Previous img=left.gif //-->
+   The 'previous' hole is plugged with a link to the previous run of
+   the current protocol. If there is no previous the link will go to
+   the index page.
+   {name} is the link text and {img} is the name of an image to be
+   used instead of a link text.
+   Note that img will overrule name.
+
+ o Name:	HOLE:next
+   Attributes:	[name], [img]
+   Example:	<!-- HOLE:next name=Next img=right.gif //-->
+   The 'next' hole is plugged with a link to the next run of
+   the current protocol. The next link will be dangling until the next
+   experiment has been performed.
+   {name} is the link text and {img} is the name of an image to be
+   used instead of a link text.
+   Note that img will overrule name.
+
+ o Name:	HOLE:lessDetails
+   Attributes:	[name], [img]
+   Example:	<!-- HOLE:lessDetails name=less img=left.gif //-->
+   The 'less detail' hole is plugged with a link to the previous
+   detail level, that is the output page generated from the template
+   with the previous number. That is outputX_n.html, where X is the
+   experiment number and the current page is outputX_n+1.html. The
+   link will go the the index page if the page is generated from
+   template1.html. 
+   {name} is the link text and {img} is the name of an image to be
+   used instead of a link text.
+   Note that img will overrule name.
+
+ o Name:	HOLE:moreDetails
+   Attributes:	[name], [img]
+   Example:	<!-- HOLE:moreDetails name=more img=right.gif //-->
+   The 'more detail' hole is plugged with a link to the next
+   detail level, that is the output page generated from the template
+   with the next number. That is outputX_n+1.html, where X is the
+   experiment number and the current page is outputX_n.html. The
+   link will go the the index page if the page is generated from the
+   template with the highest number.
+   {name} is the link text and {img} is the name of an image to be
+   used instead of a link text.
+   Note that img will overrule name.
+
+ o Name:	HOLE:protocolPrevious
+   Attributes:	[name], [img]
+   Example:	<!-- HOLE:protocolPrevious name=prevproto img=left.gif //-->
+   The 'previous protocol' hole is plugged with a link to the previous
+   subprotocol in the innermost surrounding composite protocol. If
+   it is the first subprotocol it will go to the innermost surrounding
+   composite protocol.
+   {name} is the link text and {img} is the name of an image to be
+   used instead of a link text.
+   Note that img will overrule name.
+
+ o Name:	HOLE:protocolNext
+   Attributes:	[name], [img]
+   Example:	<!-- HOLE:protocolNext name=nextproto img=right.gif //-->
+   The 'next protocol' hole is plugged with a link to the next
+   subprotocol in the innermost surrounding composite protocol. If
+   it is the last subprotocol it will go to the innermost surrounding
+   composite protocol.
+   {name} is the link text and {img} is the name of an image to be
+   used instead of a link text.
+   Note that img will overrule name.
+
+ o Name:	HOLE:surroundingProtocol
+   Attributes:	[name], [img]
+   Example:	<!-- HOLE:surroundingProtocol name=surproto img=up.gif //-->
+   The 'surrounding protocol' hole is plugged with a link to the
+   innermost surrounding composite protocol.
+   {name} is the link text and {img} is the name of an image to be
+   used instead of a link text.
+   Note that img will overrule name.
+   
+ o Name:	HOLE:longTextList
+   Attributes:	
+   Example:	<!-- HOLE:longTextList //-->
+   The data vector corresponding to the current run of the protocol is
+   extracted from the hashtable and it is converted into a html table
+   that is plugged into the template. 
+      0  --->  0x
+      1  --->  1x
+      2  --->  0+
+      3  --->  1+
+   
+ o Name:	HOLE:colorTextList
+   Attributes:	
+   Example:	<!-- HOLE:colorTextList //-->
+   The data vector corresponding to the current run of the protocol is
+   extracted from the hashtable and it is converted into a html table
+   that is plugged into the template. 
+      0  --->  red 0
+      1  --->  red 1
+      2  --->  blue 0
+      3  --->  blue 1
+
+ o Name:	HOLE:graphicList
+   Attributes:	width, pixel
+   Example:	<!-- HOLE:graphicList width=550 pixel=5,5 //-->
+   The data vector corresponding to the current run of the protocol is
+   extracted from the hashtable and it is converted into a gif-image
+   which is plugged into the template. Each value in the data vector
+   will be represented by a rectangle in the gif-image. The rectangles
+   are x times y pixels, where x and y are the values of the pixel
+   attribute. The values of the data vector is converted
+   into the following colors:
+      0  --->  blue
+      1  --->  red
+      2  --->  green
+      3  --->  black
+   {width} is the width in pixels of the gif-image.
+
+ o Name:	HOLE:protocol
+   Attributes:	name, step
+   Example:	<!-- HOLE:protocol name=Number1 step=1 //-->
+   This hole is plugged with a link to a subprotocol with {name}. When
+   a 'protocol' hole is encountered the html for the indicated
+   subprotocol is generated and a link to the first page of the
+   generated html is plugged into the 'protocol' hole. {step}
+   says which step in the composite protocol that this subprotocol is. 
+
+ o Name:	HOLE:object
+   Attributes:	name, detail
+   Example:	<!-- HOLE:object name=strObj1 detail=3 //-->
+   A list of the objects is extracted from the hashtable. The toHtml
+   method of the object with the name specified in the name attribute
+   is called with the argument {details}. All these objects should
+   implement the toHtml interface. The output from the toHtml method
+   is plugged into the 'object' hole.

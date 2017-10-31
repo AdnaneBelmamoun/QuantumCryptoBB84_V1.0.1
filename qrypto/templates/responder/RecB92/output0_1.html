@@ -1,0 +1,151 @@
+<HTML>
+<!-- Created with the AnyJ Java Development Environment -->
+<!--          http://www.netcomputing.de                -->
+<!-- the holes are: myid, peerid, errorestimate, toleratederror -->
+<!-- blocksize, passes, results, bits,confirm, totdisclosed     -->
+
+<!-- Mirrored from www.brics.dk/~salvail/qrypto/templates/responder/RecB92/output0_1.html by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 03 May 2011 16:08:19 GMT -->
+<HEAD>
+  <TITLE>Result of Reconciliation Using Cascade</TITLE>
+  <META name="description" content="">
+  <META name="keywords" content="">
+</HEAD>
+
+<BODY BGCOLOR="FFFFCC" TEXT="333333" LINK="0000FF" VLINK="FF99FF" ALINK="000088">
+
+<CENTER>
+<h1>Reconciled B92 Quantum Transmission</h1>
+<b>(responder's side)</b>
+</CENTER>
+<BR>
+<BR>
+A reconciled B92 key is obtained after applying a reconciliation
+protocol to a plain B92 key. Reconciliation is an interactive process
+taking place over the classical channel and aiming at correcting the
+errors between the sender and the receiver keys while disclosing
+as less bits as possible. Reconciliation is performed by an interactive
+protocol called <em>Cascade</em>. You can find more about 
+reconciliation and the <em>Cascade</em>
+protocol <a href="../../../doc/cascade.html">here</a>.
+<BR>
+<h2>Plain Key Generation</h2>
+The first step in order to get a reconciled key is to first
+generate a plain key which is subject to transmission errors
+and only partially private:
+<ul>
+<li>
+<a href="../PlainB92/output0_1.html">PlainB92</a>
+</ul>
+<BR>
+The PlainB92 subprotocol allowed
+<b>Bob</b>
+and
+<b>Alice</b>
+to define a plain key of <b>
+276
+</b> bits. The next step aims at 
+correcting the errors between the sender's and receiver's
+version of the plain key.
+ 
+<BR>
+<h2>Error-Correction Using Cascade</h2>
+<BR>
+<a href="../../../doc/cascade.html">Cascade</a> is an 
+interactive and parity-based error-correction 
+scheme. Before running <em>Cascade</em>, the inial blocksize
+for parity testing must be chosen together with the number
+of passes. 
+
+<p>The initial blocksize <em>k<sub>0</sub></em> 
+is chosen to be <em>k<sub>0</sub>=(1/e)+(1/4e)</em>
+where <em>e</em> is the error estimate provided 
+by the plain key generation. 
+The blocksize <em>k<sub>i+1</sub></em>
+for  pass <em>i+1</em> is defined as 
+<em>k<sub>i+1</sub>=2k<sub>i</sub></em>. 
+The last normal pass occurs when the blocksizes
+exceeds <em>1/4</em>th of all bits.
+Two extra passes
+are used with blocksize about <em>n/4</em>. Note that
+blocksize never exceeds  <em>1/4</em>th of all bits. 
+
+<p>Given an an error-estimate 
+of <b>
+0.093333334
+</b> and a B92 plain key of size <b>
+276
+</b>, we get:
+<ul>
+<li>the initial blocksize <em>k<sub>0</sub></em>=<b>
+11
+</b>,
+<li> the number of passes is <b>
+7
+</b>.
+</ul>
+<em>Cascade</em> fixed a total of <b>23</b> errors revealing <b>148</b> parity bits, where:
+<ul>
+<li><b>11</b> errors were corrected in pass <b>0</b> using block of size <b>11</b> revealing <b>60</b> parity bits.<li><b>12</b> errors were corrected in pass <b>1</b> using block of size <b>22</b> revealing <b>65</b> parity bits.<li><b>0</b> errors were corrected in pass <b>2</b> using block of size <b>44</b> revealing <b>7</b> parity bits.<li><b>0</b> errors were corrected in pass <b>3</b> using block of size <b>88</b> revealing <b>4</b> parity bits.<li><b>0</b> errors were corrected in pass <b>4</b> using block of size <b>88</b> revealing <b>4</b> parity bits.<li><b>0</b> errors were corrected in pass <b>5</b> using block of size <b>88</b> revealing <b>4</b> parity bits.<li><b>0</b> errors were corrected in pass <b>6</b> using block of size <b>88</b> revealing <b>4</b> parity bits.</ul>
+
+<br>
+The reconciled bits are the following:
+<FONT COLOR=darkgreen><BR><BR><B>1<FONT COLOR=darkred>0</FONT>010&nbsp;100<FONT COLOR=darkred>0</FONT>0&nbsp;10000&nbsp;00001&nbsp;0<FONT COLOR=darkred>0</FONT>111&nbsp;&nbsp;011<FONT COLOR=darkred>1</FONT>0&nbsp;1010<FONT COLOR=darkred>0</FONT>&nbsp;0011<FONT COLOR=darkred>0</FONT>&nbsp;10100&nbsp;1<FONT COLOR=darkred>1</FONT>010&nbsp;&nbsp;<BR>
+1011<FONT COLOR=darkred>1</FONT>&nbsp;10001&nbsp;01101&nbsp;11011&nbsp;10100&nbsp;&nbsp;00110&nbsp;11<FONT COLOR=darkred>1</FONT>11&nbsp;01011&nbsp;01<FONT COLOR=darkred>1</FONT>10&nbsp;<FONT COLOR=darkred>0</FONT>1100&nbsp;&nbsp;<BR>
+11011&nbsp;10100&nbsp;10001&nbsp;010<FONT COLOR=darkred>0</FONT><FONT COLOR=darkred>1</FONT>&nbsp;01000&nbsp;&nbsp;1010<FONT COLOR=darkred>0</FONT>&nbsp;10111&nbsp;1<FONT COLOR=darkred>1</FONT>111&nbsp;0100<FONT COLOR=darkred>1</FONT>&nbsp;11001&nbsp;&nbsp;<BR>
+11010&nbsp;00110&nbsp;00000&nbsp;10110&nbsp;11100&nbsp;&nbsp;01011&nbsp;001<FONT COLOR=darkred>0</FONT>0&nbsp;01000&nbsp;01001&nbsp;11110&nbsp;&nbsp;<BR>
+00010&nbsp;10100&nbsp;01<FONT COLOR=darkred>1</FONT>10&nbsp;10001&nbsp;10101&nbsp;&nbsp;11100&nbsp;01<FONT COLOR=darkred>1</FONT>10&nbsp;00111&nbsp;01000&nbsp;<FONT COLOR=darkred>0</FONT>1110&nbsp;&nbsp;<BR>
+<BR>010<FONT COLOR=darkred>1</FONT>0&nbsp;11111&nbsp;1100<FONT COLOR=darkred>0</FONT>&nbsp;0110<FONT COLOR=darkred>0</FONT>&nbsp;01110&nbsp;&nbsp;0</FONT></B><BR>
+<br>
+<ul>
+<li> <FONT COLOR="darkred"><b>Those</b></FONT> positions have been corrected,
+<li> <FONT COLOR="darkgreen"><b>Those</b></FONT> positions are the bits 
+     for which no error was detected.
+</ul>
+The next phase is the confirmation of the equality
+of the initiator's and responder's reconciled keys.
+If <em>Cascade</em> has succeeded then the next step should 
+confirm it.
+
+<h2>Confirmation</h2>
+
+In order to make sure that no error remains, the parity
+of random subsets of positions are exchanged and compared. In general, 
+if <em>w</em> parity bits are compared and found identical
+then the initiator's and the responder's 
+keys are identical except with probability
+2<SUP>-<em>w</em></SUP>. In this experiment, 
+<br>
+<UL><LI>Confirmation by publicly comparing <b>10</b> parity bits was performed.
+<LI>Confirmation is <b><u>successfull</u></b>.
+<LI>Bob's and Alice's keys are identical except with probability <b>2<SUP>-10</SUP></b>,which is about <b>9.765625E-4</b>.
+</UL>
+<br>
+<h2>Statistics & Overview</h2>
+Here are some statistics about this execution.
+<ul>
+<li>The observed error-rate is <b>
+0.083333336
+</b> compared to the expected value <b>
+0.093333334
+</b> produced by error-sampling.
+<li>The total number of parity bits disclosed during both reconciliation
+and confirmation is <b>
+158
+</b>.
+<li>The reconciliation rate is  
+<em>R=(n-c)/n</em> where <em>c</em> is the total 
+number of parity bits revealed and <em>n</em> is the size of the plain
+B92 key. For this execution we have <em>R=</em><b>
+0.42753622
+</b> compared to the optimal Shannon bound <em>R<sub>min</sub>=</em><b>
+0.58618313
+</b>.
+<li> Reconciliation has produced identical keys with probability <b>
+0.99902344
+</b>.
+</ul>
+
+</BODY>
+
+<!-- Mirrored from www.brics.dk/~salvail/qrypto/templates/responder/RecB92/output0_1.html by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 03 May 2011 16:08:41 GMT -->
+</HTML>

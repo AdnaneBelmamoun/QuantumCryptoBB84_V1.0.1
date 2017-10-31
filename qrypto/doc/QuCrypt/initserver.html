@@ -1,0 +1,123 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+
+<!-- Mirrored from www.brics.dk/~salvail/qrypto/doc/QuCrypt/initserver.html by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 03 May 2011 16:04:49 GMT -->
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.76 [en] (X11; U; IRIX 6.5 IP32) [Netscape]">
+</head>
+<body text="#000000" bgcolor="#FF9900" link="#000099" vlink="#3366FF" alink="#000088">
+
+<center>
+<h1>
+<b>Initiator Server</b></h1></center>
+
+<p><br><font size=+1>The initiator server is a process responsible for
+providing&nbsp; to the <a href="initplayer.gif">initiator player</a>&nbsp;
+a connection to the quantum channel. The quantum channel can be real or
+virtual. In the case of a virtual quantum transmission, the initiator server
+simulates a quantum channel by communicating classically with the <a href="respserver.html">responder
+server</a> (through an IP connection). When the quantum communication is
+real, the initiator server connects also to the quantum channel. This is
+through a normal IP connection to the so-called <a href="../physApp/datagrabber.html">quantum
+data grabber</a>. Typically, the initiator server runs on the same machine
+than the initiator player. When run,&nbsp; the initiator server looks as
+follow:</font>
+<center>
+<p><img SRC="initserver.gif" HSPACE=3 VSPACE=3 BORDER=3 height=347 width=381></center>
+
+<p><br>
+<br>
+<p>
+<hr WIDTH="100%">
+<br>&nbsp;
+<p><font size=+1>The top window shows information to the user as the server
+is running. In addition, the initiator server window contains the following
+items gathered in 3 groups:</font>
+<p><i><font size=+1>Quantum transmission settings:</font></i>
+<ul>
+<li>
+<font size=+1><b>Virtual</b> vs <b>Real</b> checkboxes indicate whether
+or not the next quantum transmission is through a simulated quantum channel
+or through the real experiment.</font></li>
+
+<li>
+<font size=+1>The <b>Config button</b> allows the configuration of both
+the virtual and real quantum transmission modes. The button acts differently
+given the selected mode:</font></li>
+
+<ul>
+<li>
+<font size=+1><i><u>Virtual Configuration</u></i>: allows to define the
+error-rate for the next virtual quantum transmission. A transmitted virtual
+qubit willl be flipped with&nbsp; the selected probability before it reaches
+the responder's side.</font></li>
+
+<li>
+<font size=+1><i><u>Real Configuration</u></i>: allows to select the IP
+address and the port number for the connection to the quantum channel through
+an entity call the <a href="../physApp/datagrabber.html">quantum data grabber</a>.
+It also allows to select the <i>bucket size</i> which is the number of
+pulses collected by the quantum channel before sending back their values
+to the initiator server. Since most of the pulses are empty, selecting
+larger <i>bucket sizes</i> increases the transmission speed. When a bucket
+has been obtained then the non-empty pulses in that bucket are sent back
+to the <a href="initplayer.html">initiator player</a> all at once.</font></li>
+</ul>
+
+<li>
+<font size=+1>The <b>right-label</b> indicates the type of quantum transmission
+to be used. Actually supported are:</font></li>
+
+<ul>
+<li>
+<font size=+1><a href="bb84coding.html">BB84</a> and</font></li>
+
+<li>
+<font size=+1><a href="b92coding.html">B92</a></font></li>
+</ul>
+</ul>
+<i><font size=+1>Ports Settings:</font></i>
+<ul>
+<li>
+<font size=+1>The<b> Server Port</b> is the port number at which the initiator
+server waits for a connection with the <a href="respserver.html">responder
+server</a>.</font></li>
+
+<li>
+<font size=+1>The <b>Client Port</b> is the port number at which the initiator
+server waits for a connection with the <a href="initplayer.html">initiator
+player</a>.</font></li>
+</ul>
+
+<p><br><i><font size=+1>Actions:</font></i>
+<ul>
+<li>
+<font size=+1>The <b>start/stop button </b>are used to start or to stop
+the server. For the time being, for each quantum transmission the initiator
+server must be restarted. After each transmission, the server stops. If
+the stop button is pressed while the server is running then the execution
+is aborted. The initiator server must be started before the <a href="respserver.html">responder
+server</a> and the <a href="initplayer.html">initiator player</a>.</font></li>
+
+<li>
+<font size=+1>The <b>progress bar</b> indicates the progress during quantum
+transmission.</font></li>
+</ul>
+
+<p><br><b><font size=+1>Security Issues:</font></b>
+<p><font size=+1>&nbsp;&nbsp;&nbsp; The connection between the initiator
+server and the <a href="initplayer.gif">initiator player</a> must be private
+in order for the quantum protocol to be implemented securely. This can
+be achieved by running both the initiator server and the initiator player
+on the same machine.</font>
+<p><font size=+1>&nbsp;&nbsp;&nbsp; The connection between the initiator
+server and the <a href="respserver.html">responder server</a> does not
+need to be private but should be authenticated.&nbsp; Authentication is
+not provided by the current implementation.</font>
+<p>
+<hr WIDTH="100%">
+</body>
+
+<!-- Mirrored from www.brics.dk/~salvail/qrypto/doc/QuCrypt/initserver.html by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 03 May 2011 16:04:54 GMT -->
+</html>

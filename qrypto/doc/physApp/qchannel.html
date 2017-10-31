@@ -1,0 +1,87 @@
+<HTML>
+  
+<!-- Mirrored from www.brics.dk/~salvail/qrypto/doc/physApp/qchannel.html by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 03 May 2011 15:57:01 GMT -->
+<HEAD>
+    <META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+    <META content="MSHTML 5.50.4134.600" name=GENERATOR>
+  </HEAD>
+  <BODY text=#000000 vLink=#3366ff aLink=#000099 link=#000099 bgColor=#ff9900>
+    <CENTER>
+      <H1><FONT size=+2>The Quantum Channel</FONT></H1>
+<img src="exp_setup70.jpg">
+    </CENTER>
+The laser (1) at Bob is a fiber coupled laser diode. From this laser,
+a strong pulse is send, which has a width of less than 1 ns. In this
+context, a strong pulse means a pulse which contains a lot of photons,
+whereas a faint pulse has low probability of containing more than one
+photon.
+<p>
+The pulse is split into two by a 50/50 beam splitter (2). Each pulse
+runs through a polarization controller (3), which are used for
+adapting the polarization of the pulses to the PBS (6), in such a way
+that the pulses run to Alice.  The polarization controllers are
+adjusted, such that the transmission through the PBS is optimal, when
+the laser is in CW mode.
+<p>
+The pulse in the upper arm is also delayed before encountering the
+PBS.  This is achieved by 150 m of optical fiber (4), which gives a
+delay of 750 ns, since the travel speed of light in optical fiber is
+0.2 m/ns. The phase modulator (5) in the upper arm is not used until
+the pulse returns from Alice, since it then would be easy for an
+eavesdropper to detect the encoded signal, because the pulses are
+strong. The two pulses separated by 750 ns then travel 20 km, though
+standard single mode fiber (7), on the way to Alice.
+<p>
+As the pulses arrive at Alice, they are again split by a 10/90 beam
+splitter (8). This allows Alice to measure when they arrive with her
+detector (9) in the 90 arm.
+<p>
+Then the pulses are attenuated with an optical attenuator (10) and
+send into a delay/storage line (11), since it may provide some
+problems sending a strong pulse in one direction of the fiber and a
+faint pulse in the other (such as dispersion of the
+pulses). Furthermore, Alice has the time needed for her electronics to
+respond to the pulses (if Bob does not only send one pulse, but a
+train of pulses, then entire train should fit into this storage line).
+<p>
+Alice does not modulate the first of the two pulses, she only reflects
+it on the Faraday mirror (FM) (13). The second pulse does not arrive
+at the phase modulator (12) until the first pulse has passed it on the
+way back, since the second pulse is 150 m behind the first. The phase
+of the second pulse may therefore be modulated without disturbing the
+first pulse, and this is the encoding of Alice.
+<p>
+Before sending the pulses back to Bob, Alice attenuates them further
+with the attenuator (10), in such a way they are faint pulses,
+i.e. they have low possibility of containing more than one photon. The
+strength of the pulses is set such that the secure bit rate <i>R</i>
+is as large as possible.
+<p>
+When the pulses encounter the PBS (6), the first pulse is send into
+the long arm, and the last pulse is send into the short arm. The
+reason for this, is the fact that the pulses are reflected on a
+Faraday mirror, since the polarization of the pulses is rotated 90
+degrease. Furthermore, the system is self-adjusting, since the pulses
+travel the same path with the same polarization, which among other
+things means that birefringence is of no concern.
+<p>
+The first pulse is therefore send to the phase modulator (5), which
+may modulate the phase. The phase modulation is the encoding of
+Bob. The pulse now runs through the 150 m of optical fiber (4) before
+encountering the polarization controller (3) and the beam splitter
+(2). The second pulse travels directly form the PBS (6) to the beam
+splitter through the polarization controller. The two pulses have
+traveled equally distances except for the phase modulations, and they
+will interfere on the beam splitter (2). This interference is at last
+measured with an avalanche photo diode (14).
+<P>
+The computers at Alice (15) and Bob (16) set the phase shifts at
+random, such that they are unknown to an Eavesdropper Eve. The
+settings are recorded such that they are known for every pulse, the
+times of measurements performed by the APD are also recorded. After
+the key has been exchanged, the bases are compared for every pulse
+measured by the APD, in order to create the secret key.
+  </BODY>
+
+<!-- Mirrored from www.brics.dk/~salvail/qrypto/doc/physApp/qchannel.html by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 03 May 2011 15:57:03 GMT -->
+</HTML>

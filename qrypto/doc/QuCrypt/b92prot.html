@@ -1,0 +1,188 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+
+<!-- Mirrored from www.brics.dk/~salvail/qrypto/doc/QuCrypt/b92prot.html by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 03 May 2011 16:05:06 GMT -->
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.76 [en] (X11; U; IRIX 6.5 IP32) [Netscape]">
+</head>
+<body text="#000000" bgcolor="#FF9900" link="#000099" vlink="#3366FF" alink="#000088">
+
+<center>
+<h1>
+<font size=+4>Implementation of the B92 QKD protocol</font></h1></center>
+<font size=+1>The B92 protocol for quantum key distribution [see <i>Phys.
+Rev. Letter, <b>68</b>,3121 1992</i>] is implemented in <b>QuCrypt</b>
+similarly to the way the BB84 protocol is implemented. In the following
+we list all important steps and give some details of implementation.&nbsp;
+We also show how Alice (the initiator) can configure the protocol settings
+before the execution. An example of the output produced by the execution
+of the B92 protocol can be found <a href="index.html">here</a>. The B92
+suffers more security weaknesses then the&nbsp; BB84 scheme. We don't have
+any security analysis for this protocol.</font>
+<br>&nbsp;
+<p>
+<hr WIDTH="100%">
+<p><b><u><font size=+1>The B92 QKD protocol:</font></u></b>
+<ol>
+<li>
+<font size=+1>(<i>quantum transmission</i>) The <a href="b92coding.html">B92
+quantum transmission</a> is executed.</font></li>
+
+<li>
+<font size=+1>(<i>good positions selection</i>) Bob announces the positions
+he could identify with certainty. Let
+<b><i>N</i></b> be the number of
+remaining bits. The key shared at this point is called the <i>raw key</i>
+(note that it is not really <i>shared</i> since Alice's and Bob's version
+are different).</font></li>
+
+<li>
+<font size=+1>(<i>error estimation</i>) Alice announces a subset of positions
+of size <b><i>K</i></b> and the bit values for those positions in the raw
+key. Bob also returns the bits he received in those positions. Both players
+compute the observed error-rate <b><i>e</i></b> and accept the quantum
+transmission if&nbsp; <b><i>e</i></b> &lt;= <i><b>e</b></i></font><i><sub>max</sub></i><font size=+1>
+as set initially by Alice. They finally remove the <b><i>K</i></b> bits
+announced from the raw key .&nbsp; If <b><i>e</i></b> ><i><b>e</b></i></font><i><sub>max</sub></i><font size=+1>
+then Alice and Bob <b><u>abort</u></b>.</font></li>
+
+<li>
+<font size=+1>(<i>reconciliation</i>) Alice and Bob perform an interactive
+reconciliation protocol releasing an extra <b><i>R</i></b> parity bits
+about the reconciled key which is the corrected version of the raw key
+(<i>see <a href="#Reconciliation and Confirmation">below</a></i>). If the
+resulting error-rate <i><b>e</b></i></font><i><sub>real</sub></i><font size=+1>
+> <i><b>e</b></i></font><i><sub>max</sub></i><font size=+1> then Alice
+and Bob <b><u>abort</u></b>.</font></li>
+
+<li>
+<font size=+1>(<i>confirmation</i>) Alice selects <b><i>L</i></b> random
+subsets <i><b>X</b><sub>1</sub></i>,...,<i><b>X</b><sub>L </sub></i>of
+positions and announces <i><b>X</b><sub>i </sub></i>together with the parity
+of all bits in <i><b>X</b><sub>i</sub></i> for 1&lt;=<i> i</i> &lt;= <b><i>L</i></b>.
+Bob compares the parity bits announced&nbsp; by Alice to the one he gets
+with his bits and tells Alice whether they are all the same. If some parity
+bits do not match then Alice and Bob <b><u>abort</u></b>.</font></li>
+
+<li>
+<font size=+1>(<i>privacy amplification</i>) Alice announces to Bob the
+description of a randomly selected hashing function <b><i>f </i></b>from
+<b><i>N</i></b>-<b><i>K</i></b>
+bits to <b><i>N</i></b>-<b><i>K</i></b>-<b><i>L</i></b>-<b><i>R</i></b>-<b><i>S</i></b>
+secret bits (<i>see <a href="#Privacy Amplification">below</a></i>). They
+each applies <b><i>f</i></b> on the reconciled key in order to get the
+final secret-key <b><i>X<sub>f </sub></i></b>in {0,1}</font><b><i><sup>N-K-L-R-S</sup></i></b><font size=+1>.</font></li>
+</ol>
+
+<h2>
+
+<hr WIDTH="100%"></h2>
+
+<h2>
+<a NAME="conf"></a><font size=+1>Initial Configuration</font></h2>
+<font size=+1>Alice is responsible to setup the configuration for the protocol
+execution. This can be done by settings the values in the configuration
+panel. The panel looks as follow:</font>
+<center>
+<p><img SRC="b92conf.gif" HSPACE=3 VSPACE=3 NOSAVE BORDER=3 height=208 width=360></center>
+
+<p><font size=+1>The <i>length of the raw key</i> here is different than
+the value of <b><i>N</i></b> defined above.&nbsp; It is length of the quantum
+transmission before the positions not detected with certainty have been
+removed. This is the number of pulses received by Bob and measured in whatever
+basis and leading to whatever result.&nbsp; If <b><i>M</i></b> is the value
+selected (here in the example we have <b><i>M</i></b>=500), then the&nbsp;
+value of <b><i>N</i></b> is approximatively <b><i>M</i></b>/4.</font>
+<p><font size=+1>The <i>porportion for sample</i> is the number of random
+positions among <b><i>N</i></b> that have been received by Bob and measured
+in the right bases that are going to be sampled for error-rate estimation.
+In the example above, 0.1<b><i>N</i></b> positions will be used in order
+to compute the observed error-rate <b><i>e</i></b>.</font>
+<p><font size=+1>The <i>size of confirmation sample</i> is the value for
+<b><i>L</i></b>
+as defined in the protocol description . In the example above, 10 random
+subsets will be picked and their parity exchanged.&nbsp; The reconciled
+key will be identical except with probability at most 2</font><b><i><sup>L</sup></i></b><font size=+1>
+whenever the confirmation phase succeeds.</font>
+<p><font size=+1>The <i>proportion for PA</i> allows to set the value of
+<b><i>S</i></b>
+as described in the protocol description.&nbsp; In the example above, we
+the&nbsp; <b><i>S</i></b>=0.05(<b><i>N-K</i></b>) will be selected.</font>
+<p><font size=+1>The last option allows for the transmission of an encrypted
+short message after QKD has been executed with success. This is mainly
+for demonstration purposes.</font>
+<h2>
+<a NAME="Bases Announcement and Error Estimation"></a><font size=+1>Good
+Positions identification and Error Estimation</font></h2>
+<font size=+1>The identification of positions that have been detected reliably
+by Bob and the error-estimation are implement in <a href="http://www.brics.dk/home/louis/anyj/projects/qrypto/protocols/PlainB92.java">PlainB92</a>
+class.&nbsp; The result of this phase is the <i>raw key</i>.</font>
+<h2>
+<a NAME="Reconciliation and Confirmation"></a><font size=+1>Reconciliation
+and Confirmation</font></h2>
+<font size=+1>Reconciliation has been implemented using protocol </font>CASCADE<font size=+1>.
+It is a parity-based and interactive error-correction algorithm. Although
+</font>CASCADE<font size=+1> requires a lot of interaction thus slowing
+down the rate at which secret-key generation can be achieved, it allows
+to save more bits of key after privacy amplification. If the quantum channel
+is an expensive ressource then it is probably better to spend more time
+during reconciliation in order to save more final bits. Moreover, the saving
+of more bits also means that&nbsp; for a fixed error-rate, secure key distribution
+can be achieved over&nbsp; longer distances. On the other hand, if for
+some settings the rate at which the secret-key is generated is the main
+concern, using&nbsp; a less interactive version of </font>CASCADE<font size=+1>
+might be preferable (especially when the classical channel is slow like
+the internet). We use the fully interactive version of </font>CASCADE<font size=+1>
+in order to get <b><i>R</i></b> as close to Shannon's lower bound <i>(<b>N</b>-<b>K</b>)h(<b>e</b>)</i>
+as possible.&nbsp;&nbsp; Reconciliation is the most time consuming operation
+in the classical phase. Under our experimental conditions, it requires
+a time comparable to what is needed for raw key generation. Interaction
+is very expensive on the internet.&nbsp; Here you can find more information
+about </font><a href="http://www.brics.dk/home/louis/anyj/projects/qrypto/doc/papers/casc.ps">CASCADE</a>.
+CASCADE <font size=+1>is implemented in the <a href="http://www.brics.dk/home/louis/anyj/projects/qrypto/protocols/Cascade.java">Cascade
+class</a>.</font>
+<p><font size=+1>Confirmation is implemented the obvious way and allows
+to make sure that Alice and Bob are sharing identical&nbsp; keys (which
+is not completely secret). In particular and for a given <b><i>L</i></b>,
+the probability that Alice and Bob think they share identical keys while
+in fact they don't is no more than 2</font><b><i><sup>-L</sup></i></b><font size=+1>.</font>
+<p><font size=+1>Reconciliation and confirmation in the B92 scheme are
+implemented in the
+<a href="http://www.brics.dk/home/louis/anyj/projects/qrypto/protocols/RecB92.java">RecB92
+class</a>.</font>
+<h2>
+<a NAME="Privacy Amplification"></a><font size=+1>Privacy Amplification</font></h2>
+<font size=+1>Privacy amplification consists for Alice in choosing randomly&nbsp;
+a hashing function&nbsp; <b><i>f</i></b>:{0,1}</font><b><i><sup>N-K</sup></i></b><font size=+1>
+-> {0,1}</font><b><i><sup>N-K-L-R-S</sup></i></b><font size=+1> from some
+class <b><i>F</i></b>. She then announces the description of <b><i>f </i></b>over
+the public channel allowing Alice and Bob to compute the final key <b><i>X</i></b></font><b><i><sub>f</sub></i></b><font size=+1>=<b><i>f</i></b>(<b><i>X</i></b></font><b><i><sub>A</sub></i></b><font size=+1>)=<b><i>f</i></b>(<b><i>X</i></b></font><b><i><sub>B</sub></i></b><font size=+1>)
+where <b><i>X</i></b></font><b><i><sub>A</sub></i></b><font size=+1> and
+<b><i>X</i></b></font><b><i><sub>B</sub></i></b><font size=+1>are
+the partially secret strings in {0,1}</font><b><i><sup>N-K </sup></i></b><font size=+1>obtained
+after confirmation. In order for privacy amplification to produce a statiscally
+secret <b><i>X</i></b></font><b><i><sub>f</sub></i></b><font size=+1>,
+the class <b><i>F</i></b> must be&nbsp; universal</font><sub>2</sub><font size=+1>
+(see BBR). Moreover, in order for privacy amplification to be efficient,
+the description of <b><i>f&nbsp; </i></b>in <b><i>F</i></b> should be short.
+We've&nbsp; implemented privacy amplification using an universal</font><sub>2</sub><font size=+1>
+class of&nbsp; hashing functions <b><i>F</i></b> introduced by <a href="http://www.brics.dk/home/louis/anyj/projects/qrypto/doc/papers/lfsr.ps">Krawczyk</a>.
+Any function <b><i>f</i></b> in <b><i>F&nbsp; </i></b>is described by a
+Toeplitz matrix <b><i>T</i></b></font><b><i><sub>s</sub></i></b><font size=+1>
+where <b><i>s </i></b>in {0,1}</font><b><i><sup><font size=-1>2N-2K-L-R-S
+</font></sup></i></b><font size=+1>is
+randomly selected and sufficient for describing&nbsp; <b><i>f</i></b>.&nbsp;
+As a result, the description of&nbsp; <b><i>f </i></b>requires the transmission
+of only <i>O(<b>N</b>)</i> bits (one-way communication) and time in <i>O(<b>N</b></i></font><i><sup>2</sup><font size=+1>)</font></i><font size=+1>
+for evaluating it. This makes the contribution of privacy amplification
+to the secret-key generation rate almost negligeable.</font>
+<p><font size=+1>Privacy amplification in the B92 scheme is implemented
+in the <a href="http://www.brics.dk/home/louis/anyj/projects/qrypto/protocols/B92.java">B92
+class</a>.</font>
+<p>
+<hr WIDTH="100%">
+</body>
+
+<!-- Mirrored from www.brics.dk/~salvail/qrypto/doc/QuCrypt/b92prot.html by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 03 May 2011 16:05:08 GMT -->
+</html>

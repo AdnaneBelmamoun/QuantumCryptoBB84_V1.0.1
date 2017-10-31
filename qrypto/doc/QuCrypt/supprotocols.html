@@ -1,0 +1,92 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+
+<!-- Mirrored from www.brics.dk/~salvail/qrypto/doc/QuCrypt/supprotocols.html by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 03 May 2011 15:58:03 GMT -->
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.76 [en] (X11; U; IRIX 6.5 IP32) [Netscape]">
+</head>
+<body text="#000000" bgcolor="#FF9900" link="#000099" vlink="#3366FF" alink="#000088">
+
+<center>
+<h1>
+<font size=+4>QuCrypt's Support for Quantum Protocols</font></h1></center>
+<font size=+1>Protocols in <b>QuCrypt</b> can be easily added by specializing
+the existing ones.&nbsp; For the time being, only quantum key distribution
+protocols are provided. Two kinds of quantum key distribution (QKD) protocols
+are implemented in <b>QuCrypt</b>.&nbsp; They are:</font>
+<ul>
+<li>
+<font size=+1><a href="bb84prot.html">BB84 Quantum key distribution</a>
+protocol, and</font></li>
+
+<li>
+<font size=+1><a href="b92prot.html">B92 Quantum key distribution</a> protocol.</font></li>
+</ul>
+<font size=+1>In addition, some itermediary versions of both QKD protocols
+are provided for future extension of the protocol library. Each protocol
+being built by specializing subprotocols, we get the following specialization
+chain:</font>
+<ul>
+<li>
+<font size=+1>Raw BB84 -> Reconciled BB84 -> Full BB84</font></li>
+
+<li>
+<font size=+1>Raw B92&nbsp;&nbsp;&nbsp; -> Reconciled B92&nbsp;&nbsp;&nbsp;
+-> Full B92.</font></li>
+</ul>
+<font size=+1>Each of these intermediary versions are reusable inside different
+protocols or different implementations of the currently supported schemes.&nbsp;
+To see how to build your own quantum protocol, look at how the implementation
+of the <a href="http://www.brics.dk/home/louis/anyj/projects/qrypto/protocols/BB84.java">full
+BB84</a> QKD protocol uses the implementation of <a href="http://www.brics.dk/home/louis/anyj/projects/qrypto/protocols/RecBB84.java">reconciled
+BB84</a> in the <a href="http://www.brics.dk/home/louis/anyj/projects/qrypto/protocols/">protocols
+package</a>.</font>
+<p><font size=+1>The goal would be to develop a large library of subprotocols
+in order to make quantum protocols easy to implement by putting together
+the reusable components that are the most adapted to a specific task. JAVA
+being an object oriented programming language makes it a good choice for
+achieving this goal.</font>
+<h3>
+<font size=+1>Raw Quantum Transmission</font></h3>
+<font size=+1>The <i>Raw BB84</i> and <i>Raw B92</i> are subprotocols allowing
+to generate the raw key from which public discussion between Alice and
+Bob should produce the final secret key.&nbsp; The raw key is simply the
+raw material produced by the quantum transmission using the <a href="bb84coding.html">BB84
+coding</a> scheme and the <a href="b92coding.html">B92 coding</a> scheme
+respectively.&nbsp; The raw part of QKD protocols is a kind of general
+primitives that can be used as the quantum part for more general quantum
+protocols.&nbsp; If one wants to provide a different quantum protocol using
+either <i>Raw BB84</i> or <i>Raw B92</i> for the quantum transmission part
+then one just writes the specification of the classical part of the protocol
+taking place after the&nbsp; raw key generation.&nbsp; The raw key can
+also be stored (only in the next
+<b>QuCrypt</b>'s release though) for future
+processing involving maybe only classical channels.</font>
+<br>&nbsp;
+<h3>
+<font size=+1>Reconciled Quantum Transmission</font></h3>
+<font size=+1>The reconciled quantum transmission is the string Alice and
+Bob get after having corrected the transmission errors in the <i>Raw key</i>.&nbsp;
+For the time being only one reconciliation scheme is included in <b>QuCrypt</b>.&nbsp;
+After Alice and Bob have applied reconciliation, they make sure that no
+error is left by executing another classical subprotocol called <i>confirmation</i>.&nbsp;
+Both <i>reconciliation</i> and <i>confirmation</i> can be redefined by
+providing new protocol specifications.&nbsp; For an example of how to provide
+your own reconciliation or confirmation protocol, look at how <a href="http://www.brics.dk/home/louis/anyj/projects/qrypto/protocols/Cascade.java">Cascade</a>
+has been included in <a href="http://www.brics.dk/home/louis/anyj/projects/qrypto/protocols/RecBB84.java">RecBB84</a>
+and <a href="http://www.brics.dk/home/louis/anyj/projects/qrypto/protocols/RecB92.java">RecB92</a>.</font>
+<br>&nbsp;
+<h2>
+<font size=+1>Full QKD</font></h2>
+<font size=+1>The final secret key is obtained by applying <i>privacy amplification</i>
+to the <i>reconciled key</i>. Different methods can be added to the one
+available in <b>QuCrypt</b>.&nbsp; The current privacy amplification protocol
+is implemented in the <a href="http://www.brics.dk/home/louis/anyj/projects/qrypto/protocols/PrivacyAmplification.java">PA
+class</a> and are used in <a href="http://www.brics.dk/home/louis/anyj/projects/qrypto/protocols/BB84.java">BB84</a>
+and <a href="http://www.brics.dk/home/louis/anyj/projects/qrypto/protocols/B92.java">B92</a>
+the obvious way.</font>
+</body>
+
+<!-- Mirrored from www.brics.dk/~salvail/qrypto/doc/QuCrypt/supprotocols.html by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 03 May 2011 15:58:03 GMT -->
+</html>

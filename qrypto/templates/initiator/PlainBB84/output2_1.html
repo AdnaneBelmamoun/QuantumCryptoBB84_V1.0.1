@@ -1,0 +1,161 @@
+<HTML>
+<!-- Created with the AnyJ Java Development Environment -->
+<!--          http://www.netcomputing.de               -->
+<!-- the holes are: myid, peerid, selectedPos, numberOfFinalBits, cbits -->
+<!-- sampleSize, numberOfErrors, and errorRate, differentProbes, keptPos -->
+
+<!-- Mirrored from www.brics.dk/~salvail/qrypto/templates/initiator/PlainBB84/output2_1.html by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 03 May 2011 16:10:14 GMT -->
+<HEAD>
+  <TITLE>Result of a Plain BB84 Quantum Transmission</TITLE>
+  <META name="description" content="">
+  <META name="keywords" content="">
+</HEAD>
+<BODY BGCOLOR="FFFFCC" TEXT="333333" LINK="0000FF" VLINK="FF99FF" ALINK="000088">
+<CENTER>
+<h1>Plain BB84 Quantum Transmission</h1>
+<b>(initiator's side)</b>
+</CENTER>
+<BR>
+<BR>
+This protocol generates a key between the sender and the receiver
+that is in most positions identical. After this phase, both players
+share a <em>similar key</em> that is <em>partially</em> secret.
+This is called the <em>plain key</em>.
+<BR>
+<BR>
+<h2>Raw BB84 Key Generation</h2>
+The first step of a Plain BB84 quantum transmission is the
+BB84 raw key generation.  Details about this BB84
+raw key generation can be found in:
+<ul>
+<li>
+<a href="../RawBB84/output2_1.html">RawBB84</a>
+</ul>
+<BR>
+The raw key generation, <b> 
+<b>Alice</b>
+</b> and <b>
+<b>Bob</b>
+</b> to weakly agree on a sequence of bits. Both sequences
+differ in many positions (about 1/2) even in the case
+of error-free quantum communication. The next phase of the
+protocol allows to keep only the positions for which the
+same bit is shared except for possible errors caused by noisy
+quantum transmission.  
+ 
+<BR>
+<h2>Keeping good positions</h2>
+<BR>
+The good positions are the one for which the basis used
+to measure the qubit is the same as the one used to send the qubit.
+In this case the sender and the receiver should end up (if no
+transmission error occured) with the same classical bit.<b>
+<b>Alice</b>
+</b> and <b>
+<b>Bob</b>
+</b> determine which positions have matching bases 
+by announcing the sequence of bases over the public channel. 
+For this execution the matching positions appear
+like that:
+<BR><BR><B><FONT COLOR=brown>0</FONT><FONT COLOR=blue>1</FONT><S><FONT COLOR=brown>0</FONT></S><FONT COLOR=brown>0</FONT><FONT COLOR=brown>1</FONT>&nbsp;<FONT COLOR=blue>1</FONT><S><FONT COLOR=blue>1</FONT></S><FONT COLOR=brown>0</FONT><S><FONT COLOR=brown>1</FONT></S><FONT COLOR=blue>0</FONT>&nbsp;<S><FONT COLOR=blue>0</FONT></S><FONT COLOR=blue>0</FONT><FONT COLOR=blue>1</FONT><S><FONT COLOR=blue>0</FONT></S><FONT COLOR=brown>0</FONT>&nbsp;<S><FONT COLOR=brown>1</FONT></S><S><FONT COLOR=blue>1</FONT></S><S><FONT COLOR=blue>1</FONT></S><S><FONT COLOR=blue>0</FONT></S><FONT COLOR=brown>1</FONT>&nbsp;<S><FONT COLOR=brown>0</FONT></S><FONT COLOR=blue>0</FONT><FONT COLOR=brown>0</FONT><S><FONT COLOR=blue>1</FONT></S><S><FONT COLOR=brown>1</FONT></S>&nbsp;&nbsp;&nbsp;&nbsp;<FONT COLOR=blue>1</FONT><FONT COLOR=brown>1</FONT><S><FONT COLOR=blue>0</FONT></S><FONT COLOR=brown>0</FONT><FONT COLOR=brown>0</FONT>&nbsp;<S><FONT COLOR=blue>0</FONT></S><S><FONT COLOR=blue>0</FONT></S><S><FONT COLOR=brown>1</FONT></S><FONT COLOR=brown>1</FONT><FONT COLOR=brown>0</FONT>&nbsp;<FONT COLOR=brown>0</FONT><S><FONT COLOR=brown>0</FONT></S><FONT COLOR=brown>0</FONT><S><FONT COLOR=blue>1</FONT></S><S><FONT COLOR=blue>0</FONT></S>&nbsp;<FONT COLOR=blue>0</FONT><S><FONT COLOR=blue>0</FONT></S><S><FONT COLOR=blue>0</FONT></S><FONT COLOR=brown>1</FONT><S><FONT COLOR=brown>1</FONT></S>&nbsp;<FONT COLOR=brown>1</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=brown>0</FONT><S><FONT COLOR=brown>0</FONT></S><S><FONT COLOR=brown>0</FONT></S>&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+<FONT COLOR=blue>0</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=blue>0</FONT>&nbsp;<S><FONT COLOR=blue>1</FONT></S><S><FONT COLOR=brown>0</FONT></S><S><FONT COLOR=brown>0</FONT></S><S><FONT COLOR=blue>1</FONT></S><S><FONT COLOR=blue>1</FONT></S>&nbsp;<S><FONT COLOR=brown>1</FONT></S><S><FONT COLOR=brown>0</FONT></S><FONT COLOR=brown>0</FONT><S><FONT COLOR=blue>0</FONT></S><S><FONT COLOR=brown>0</FONT></S>&nbsp;<FONT COLOR=brown>1</FONT><FONT COLOR=brown>0</FONT><S><FONT COLOR=brown>0</FONT></S><FONT COLOR=blue>0</FONT><FONT COLOR=brown>1</FONT>&nbsp;<S><FONT COLOR=blue>1</FONT></S><S><FONT COLOR=brown>1</FONT></S><FONT COLOR=brown>0</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=brown>0</FONT>&nbsp;&nbsp;&nbsp;&nbsp;<FONT COLOR=brown>1</FONT><S><FONT COLOR=blue>0</FONT></S><S><FONT COLOR=blue>1</FONT></S><S><FONT COLOR=blue>0</FONT></S><S><FONT COLOR=blue>1</FONT></S>&nbsp;<FONT COLOR=brown>0</FONT><FONT COLOR=blue>1</FONT><S><FONT COLOR=brown>1</FONT></S><FONT COLOR=brown>1</FONT><FONT COLOR=blue>1</FONT>&nbsp;<S><FONT COLOR=blue>1</FONT></S><S><FONT COLOR=blue>0</FONT></S><S><FONT COLOR=brown>1</FONT></S><FONT COLOR=brown>0</FONT><S><FONT COLOR=brown>1</FONT></S>&nbsp;<S><FONT COLOR=blue>0</FONT></S><FONT COLOR=blue>0</FONT><S><FONT COLOR=brown>1</FONT></S><S><FONT COLOR=brown>0</FONT></S><S><FONT COLOR=blue>0</FONT></S>&nbsp;<S><FONT COLOR=brown>0</FONT></S><FONT COLOR=brown>0</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=blue>1</FONT>&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+<S><FONT COLOR=brown>1</FONT></S><S><FONT COLOR=blue>1</FONT></S><S><FONT COLOR=brown>0</FONT></S><S><FONT COLOR=brown>1</FONT></S><S><FONT COLOR=blue>1</FONT></S>&nbsp;<FONT COLOR=brown>0</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=brown>1</FONT><S><FONT COLOR=brown>1</FONT></S>&nbsp;<FONT COLOR=brown>1</FONT><S><FONT COLOR=blue>1</FONT></S><S><FONT COLOR=blue>1</FONT></S><FONT COLOR=brown>1</FONT><FONT COLOR=brown>1</FONT>&nbsp;<FONT COLOR=brown>0</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=brown>0</FONT><S><FONT COLOR=blue>0</FONT></S><S><FONT COLOR=brown>1</FONT></S>&nbsp;<FONT COLOR=brown>0</FONT><FONT COLOR=brown>1</FONT><S><FONT COLOR=blue>0</FONT></S><S><FONT COLOR=brown>0</FONT></S><FONT COLOR=blue>0</FONT>&nbsp;&nbsp;&nbsp;&nbsp;<FONT COLOR=brown>0</FONT><S><FONT COLOR=blue>0</FONT></S><S><FONT COLOR=brown>1</FONT></S><S><FONT COLOR=brown>1</FONT></S><S><FONT COLOR=brown>0</FONT></S>&nbsp;<S><FONT COLOR=blue>0</FONT></S><FONT COLOR=blue>1</FONT><S><FONT COLOR=brown>1</FONT></S><FONT COLOR=blue>1</FONT><S><FONT COLOR=blue>1</FONT></S>&nbsp;<S><FONT COLOR=blue>0</FONT></S><FONT COLOR=blue>1</FONT><S><FONT COLOR=blue>1</FONT></S><S><FONT COLOR=blue>1</FONT></S><FONT COLOR=brown>0</FONT>&nbsp;<FONT COLOR=blue>0</FONT><FONT COLOR=blue>1</FONT><S><FONT COLOR=brown>1</FONT></S><S><FONT COLOR=blue>0</FONT></S><S><FONT COLOR=brown>1</FONT></S>&nbsp;<FONT COLOR=brown>0</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=blue>0</FONT><S><FONT COLOR=blue>1</FONT></S>&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+<FONT COLOR=brown>1</FONT><FONT COLOR=brown>0</FONT><S><FONT COLOR=blue>0</FONT></S><S><FONT COLOR=brown>0</FONT></S><FONT COLOR=brown>0</FONT>&nbsp;<S><FONT COLOR=brown>1</FONT></S><S><FONT COLOR=brown>0</FONT></S><S><FONT COLOR=brown>1</FONT></S><S><FONT COLOR=brown>1</FONT></S><FONT COLOR=blue>1</FONT>&nbsp;<FONT COLOR=blue>1</FONT><FONT COLOR=blue>0</FONT><S><FONT COLOR=brown>0</FONT></S><S><FONT COLOR=blue>0</FONT></S><FONT COLOR=brown>0</FONT>&nbsp;<FONT COLOR=brown>0</FONT><S><FONT COLOR=blue>1</FONT></S><FONT COLOR=brown>0</FONT><FONT COLOR=brown>0</FONT><S><FONT COLOR=brown>1</FONT></S>&nbsp;<S><FONT COLOR=brown>0</FONT></S><S><FONT COLOR=brown>0</FONT></S><FONT COLOR=brown>1</FONT><S><FONT COLOR=blue>0</FONT></S><FONT COLOR=blue>0</FONT>&nbsp;&nbsp;&nbsp;&nbsp;<S><FONT COLOR=blue>1</FONT></S><S><FONT COLOR=brown>1</FONT></S><S><FONT COLOR=blue>0</FONT></S><FONT COLOR=brown>1</FONT><FONT COLOR=brown>1</FONT>&nbsp;<S><FONT COLOR=blue>0</FONT></S><S><FONT COLOR=brown>1</FONT></S><FONT COLOR=brown>0</FONT><S><FONT COLOR=blue>0</FONT></S><FONT COLOR=brown>1</FONT>&nbsp;<S><FONT COLOR=brown>0</FONT></S><FONT COLOR=blue>0</FONT><S><FONT COLOR=brown>0</FONT></S><S><FONT COLOR=blue>0</FONT></S><FONT COLOR=brown>1</FONT>&nbsp;<FONT COLOR=blue>1</FONT><FONT COLOR=brown>0</FONT><S><FONT COLOR=blue>0</FONT></S><S><FONT COLOR=blue>0</FONT></S><S><FONT COLOR=blue>0</FONT></S>&nbsp;<S><FONT COLOR=brown>1</FONT></S><FONT COLOR=brown>0</FONT><S><FONT COLOR=brown>1</FONT></S><FONT COLOR=blue>1</FONT><FONT COLOR=brown>1</FONT>&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+<FONT COLOR=brown>1</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=brown>1</FONT>&nbsp;<FONT COLOR=blue>0</FONT><S><FONT COLOR=brown>1</FONT></S><S><FONT COLOR=brown>1</FONT></S><S><FONT COLOR=blue>1</FONT></S><S><FONT COLOR=brown>1</FONT></S>&nbsp;<FONT COLOR=blue>0</FONT><FONT COLOR=brown>1</FONT><S><FONT COLOR=blue>0</FONT></S><S><FONT COLOR=brown>1</FONT></S><S><FONT COLOR=brown>1</FONT></S>&nbsp;<S><FONT COLOR=blue>1</FONT></S><S><FONT COLOR=blue>0</FONT></S><S><FONT COLOR=brown>1</FONT></S><FONT COLOR=brown>0</FONT><S><FONT COLOR=blue>0</FONT></S>&nbsp;<S><FONT COLOR=brown>1</FONT></S><S><FONT COLOR=brown>1</FONT></S><S><FONT COLOR=blue>0</FONT></S><FONT COLOR=blue>0</FONT><S><FONT COLOR=blue>0</FONT></S>&nbsp;&nbsp;&nbsp;&nbsp;<S><FONT COLOR=brown>1</FONT></S><FONT COLOR=brown>0</FONT><S><FONT COLOR=blue>0</FONT></S><FONT COLOR=blue>1</FONT><FONT COLOR=blue>1</FONT>&nbsp;<S><FONT COLOR=blue>0</FONT></S><FONT COLOR=blue>0</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=brown>0</FONT><S><FONT COLOR=blue>1</FONT></S>&nbsp;<S><FONT COLOR=blue>1</FONT></S><S><FONT COLOR=brown>1</FONT></S><FONT COLOR=brown>0</FONT><S><FONT COLOR=blue>0</FONT></S><FONT COLOR=brown>1</FONT>&nbsp;<S><FONT COLOR=brown>1</FONT></S><S><FONT COLOR=blue>1</FONT></S><FONT COLOR=blue>0</FONT><FONT COLOR=blue>0</FONT><S><FONT COLOR=blue>1</FONT></S>&nbsp;<FONT COLOR=brown>0</FONT><S><FONT COLOR=blue>0</FONT></S><FONT COLOR=blue>0</FONT><FONT COLOR=brown>1</FONT><S><FONT COLOR=brown>1</FONT></S>&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+<BR><FONT COLOR=brown>1</FONT><FONT COLOR=brown>0</FONT><S><FONT COLOR=blue>1</FONT></S><S><FONT COLOR=blue>1</FONT></S><S><FONT COLOR=blue>1</FONT></S>&nbsp;<S><FONT COLOR=blue>0</FONT></S><FONT COLOR=blue>0</FONT><S><FONT COLOR=brown>1</FONT></S><S><FONT COLOR=blue>1</FONT></S><FONT COLOR=brown>1</FONT>&nbsp;<S><FONT COLOR=blue>0</FONT></S><FONT COLOR=brown>0</FONT><S><FONT COLOR=blue>0</FONT></S><FONT COLOR=brown>1</FONT><S><FONT COLOR=blue>1</FONT></S>&nbsp;<S><FONT COLOR=blue>0</FONT></S><FONT COLOR=brown>1</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>0</FONT><S><FONT COLOR=blue>0</FONT></S>&nbsp;<S><FONT COLOR=blue>0</FONT></S><S><FONT COLOR=brown>0</FONT></S><FONT COLOR=brown>1</FONT><S><FONT COLOR=blue>0</FONT></S><S><FONT COLOR=brown>1</FONT></S>&nbsp;&nbsp;&nbsp;&nbsp;<FONT COLOR=blue>0</FONT><FONT COLOR=brown>0</FONT><S><FONT COLOR=blue>0</FONT></S><FONT COLOR=blue>1</FONT><FONT COLOR=blue>1</FONT>&nbsp;<S><FONT COLOR=brown>0</FONT></S><S><FONT COLOR=blue>0</FONT></S><FONT COLOR=blue>1</FONT><S><FONT COLOR=blue>1</FONT></S><FONT COLOR=brown>1</FONT>&nbsp;<FONT COLOR=blue>0</FONT><S><FONT COLOR=blue>1</FONT></S><FONT COLOR=blue>1</FONT><S><FONT COLOR=blue>1</FONT></S><S><FONT COLOR=brown>0</FONT></S>&nbsp;<FONT COLOR=blue>0</FONT><FONT COLOR=brown>1</FONT><S><FONT COLOR=blue>0</FONT></S><S><FONT COLOR=blue>1</FONT></S><FONT COLOR=blue>0</FONT>&nbsp;<S><FONT COLOR=brown>1</FONT></S><S><FONT COLOR=brown>0</FONT></S><FONT COLOR=blue>1</FONT><S><FONT COLOR=brown>0</FONT></S><S><FONT COLOR=blue>1</FONT></S>&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+<S><FONT COLOR=blue>0</FONT></S><S><FONT COLOR=blue>1</FONT></S><S><FONT COLOR=blue>1</FONT></S><FONT COLOR=blue>0</FONT><FONT COLOR=brown>1</FONT>&nbsp;<S><FONT COLOR=brown>1</FONT></S><FONT COLOR=brown>0</FONT><FONT COLOR=brown>1</FONT><S><FONT COLOR=blue>1</FONT></S><FONT COLOR=brown>1</FONT>&nbsp;<FONT COLOR=brown>1</FONT><S><FONT COLOR=blue>0</FONT></S><S><FONT COLOR=blue>0</FONT></S><FONT COLOR=brown>0</FONT><S><FONT COLOR=blue>1</FONT></S>&nbsp;<FONT COLOR=brown>1</FONT><S><FONT COLOR=brown>0</FONT></S><FONT COLOR=brown>0</FONT><FONT COLOR=blue>1</FONT><S><FONT COLOR=blue>1</FONT></S>&nbsp;<FONT COLOR=blue>1</FONT><S><FONT COLOR=brown>1</FONT></S><FONT COLOR=brown>1</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=brown>0</FONT>&nbsp;&nbsp;&nbsp;&nbsp;<S><FONT COLOR=brown>1</FONT></S><S><FONT COLOR=blue>0</FONT></S><FONT COLOR=brown>0</FONT><S><FONT COLOR=blue>0</FONT></S><S><FONT COLOR=blue>1</FONT></S>&nbsp;<FONT COLOR=blue>0</FONT><FONT COLOR=brown>0</FONT><S><FONT COLOR=brown>1</FONT></S><FONT COLOR=brown>1</FONT><S><FONT COLOR=brown>0</FONT></S>&nbsp;<FONT COLOR=blue>1</FONT><FONT COLOR=brown>1</FONT><S><FONT COLOR=blue>0</FONT></S><S><FONT COLOR=brown>0</FONT></S><S><FONT COLOR=blue>1</FONT></S>&nbsp;<S><FONT COLOR=blue>0</FONT></S><FONT COLOR=brown>0</FONT><S><FONT COLOR=blue>1</FONT></S><S><FONT COLOR=blue>1</FONT></S><S><FONT COLOR=brown>1</FONT></S>&nbsp;<S><FONT COLOR=brown>1</FONT></S><FONT COLOR=blue>0</FONT><S><FONT COLOR=brown>0</FONT></S><FONT COLOR=blue>1</FONT><FONT COLOR=blue>1</FONT>&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+<S><FONT COLOR=brown>0</FONT></S><S><FONT COLOR=brown>0</FONT></S><S><FONT COLOR=brown>0</FONT></S><FONT COLOR=brown>0</FONT><FONT COLOR=brown>1</FONT>&nbsp;<S><FONT COLOR=blue>1</FONT></S><FONT COLOR=brown>1</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=blue>1</FONT><S><FONT COLOR=brown>0</FONT></S>&nbsp;<FONT COLOR=blue>1</FONT><FONT COLOR=brown>1</FONT><S><FONT COLOR=blue>0</FONT></S><S><FONT COLOR=brown>0</FONT></S><FONT COLOR=brown>0</FONT>&nbsp;<S><FONT COLOR=brown>1</FONT></S><FONT COLOR=blue>1</FONT><FONT COLOR=brown>0</FONT><S><FONT COLOR=brown>1</FONT></S><S><FONT COLOR=blue>1</FONT></S>&nbsp;<S><FONT COLOR=brown>1</FONT></S><FONT COLOR=blue>0</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=brown>0</FONT><S><FONT COLOR=blue>1</FONT></S>&nbsp;&nbsp;&nbsp;&nbsp;<FONT COLOR=blue>0</FONT><S><FONT COLOR=brown>0</FONT></S><S><FONT COLOR=brown>1</FONT></S><S><FONT COLOR=blue>0</FONT></S><S><FONT COLOR=blue>0</FONT></S>&nbsp;<FONT COLOR=blue>1</FONT><S><FONT COLOR=blue>1</FONT></S><FONT COLOR=blue>0</FONT><S><FONT COLOR=brown>0</FONT></S><S><FONT COLOR=brown>1</FONT></S>&nbsp;<S><FONT COLOR=blue>0</FONT></S><S><FONT COLOR=brown>0</FONT></S><S><FONT COLOR=brown>0</FONT></S><FONT COLOR=brown>1</FONT><S><FONT COLOR=brown>0</FONT></S>&nbsp;<FONT COLOR=brown>0</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=brown>0</FONT><S><FONT COLOR=brown>1</FONT></S><S><FONT COLOR=blue>0</FONT></S>&nbsp;<S><FONT COLOR=brown>0</FONT></S><FONT COLOR=blue>1</FONT><FONT COLOR=blue>0</FONT><S><FONT COLOR=blue>0</FONT></S><S><FONT COLOR=blue>0</FONT></S>&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+<FONT COLOR=blue>1</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=brown>1</FONT><S><FONT COLOR=blue>0</FONT></S><S><FONT COLOR=brown>1</FONT></S>&nbsp;<FONT COLOR=brown>0</FONT><FONT COLOR=brown>1</FONT><FONT COLOR=brown>0</FONT><FONT COLOR=blue>0</FONT><FONT COLOR=blue>0</FONT>&nbsp;<S><FONT COLOR=blue>0</FONT></S><S><FONT COLOR=brown>0</FONT></S><FONT COLOR=brown>0</FONT><FONT COLOR=brown>0</FONT><S><FONT COLOR=brown>0</FONT></S>&nbsp;<S><FONT COLOR=brown>1</FONT></S><S><FONT COLOR=blue>0</FONT></S><FONT COLOR=brown>0</FONT><S><FONT COLOR=brown>0</FONT></S><S><FONT COLOR=blue>0</FONT></S>&nbsp;<FONT COLOR=brown>0</FONT><S><FONT COLOR=blue>1</FONT></S><S><FONT COLOR=blue>1</FONT></S><FONT COLOR=blue>1</FONT><FONT COLOR=blue>0</FONT>&nbsp;&nbsp;&nbsp;&nbsp;<FONT COLOR=blue>0</FONT><S><FONT COLOR=blue>0</FONT></S><S><FONT COLOR=blue>0</FONT></S><S><FONT COLOR=blue>0</FONT></S><S><FONT COLOR=brown>0</FONT></S>&nbsp;<FONT COLOR=blue>0</FONT><S><FONT COLOR=blue>0</FONT></S><S><FONT COLOR=brown>0</FONT></S><S><FONT COLOR=blue>1</FONT></S><FONT COLOR=blue>1</FONT>&nbsp;<FONT COLOR=blue>1</FONT><FONT COLOR=brown>1</FONT><S><FONT COLOR=blue>0</FONT></S><FONT COLOR=brown>0</FONT><S><FONT COLOR=blue>0</FONT></S>&nbsp;<S><FONT COLOR=blue>1</FONT></S><S><FONT COLOR=blue>1</FONT></S><S><FONT COLOR=brown>0</FONT></S><S><FONT COLOR=blue>0</FONT></S><S><FONT COLOR=brown>0</FONT></S>&nbsp;<S><FONT COLOR=blue>0</FONT></S><FONT COLOR=brown>1</FONT><S><FONT COLOR=brown>0</FONT></S><S><FONT COLOR=blue>0</FONT></S><S><FONT COLOR=brown>1</FONT></S>&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+<S><FONT COLOR=brown>1</FONT></S><FONT COLOR=brown>0</FONT><S><FONT COLOR=blue>0</FONT></S><S><FONT COLOR=brown>0</FONT></S><S><FONT COLOR=brown>0</FONT></S>&nbsp;<S><FONT COLOR=brown>0</FONT></S><FONT COLOR=blue>1</FONT><S><FONT COLOR=brown>0</FONT></S><FONT COLOR=brown>1</FONT><FONT COLOR=blue>1</FONT>&nbsp;<S><FONT COLOR=blue>0</FONT></S><S><FONT COLOR=blue>0</FONT></S><S><FONT COLOR=brown>1</FONT></S><FONT COLOR=brown>1</FONT><S><FONT COLOR=blue>0</FONT></S>&nbsp;<S><FONT COLOR=blue>0</FONT></S><FONT COLOR=blue>1</FONT><S><FONT COLOR=blue>0</FONT></S><S><FONT COLOR=blue>1</FONT></S><S><FONT COLOR=brown>0</FONT></S>&nbsp;<S><FONT COLOR=blue>0</FONT></S><FONT COLOR=blue>0</FONT><FONT COLOR=blue>0</FONT><S><FONT COLOR=brown>0</FONT></S><FONT COLOR=brown>0</FONT>&nbsp;&nbsp;&nbsp;&nbsp;<S><FONT COLOR=blue>0</FONT></S><FONT COLOR=brown>0</FONT><S><FONT COLOR=blue>1</FONT></S><FONT COLOR=blue>0</FONT><S><FONT COLOR=blue>0</FONT></S>&nbsp;<FONT COLOR=brown>0</FONT><FONT COLOR=brown>1</FONT><S><FONT COLOR=blue>1</FONT></S><FONT COLOR=blue>0</FONT><FONT COLOR=blue>0</FONT>&nbsp;<S><FONT COLOR=brown>0</FONT></S><FONT COLOR=blue>1</FONT><S><FONT COLOR=brown>1</FONT></S><S><FONT COLOR=blue>1</FONT></S><FONT COLOR=blue>1</FONT>&nbsp;<FONT COLOR=blue>1</FONT><S><FONT COLOR=blue>1</FONT></S><FONT COLOR=brown>1</FONT><FONT COLOR=blue>1</FONT><FONT COLOR=blue>1</FONT>&nbsp;<S><FONT COLOR=brown>0</FONT></S><FONT COLOR=brown>1</FONT><FONT COLOR=brown>0</FONT><S><FONT COLOR=blue>1</FONT></S><FONT COLOR=blue>1</FONT>&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+<BR></B><BR>
+Where,
+<ul>
+<li> <FONT COLOR="darkblue"><b>Blue</b></FONT> means a qubit in basis 
+     "<FONT COLOR="darkblue"><B>+</B></FONT>",
+<li> <FONT COLOR="darkred"><b>Red</b></FONT> means a qubit in basis 
+     "<FONT COLOR="darkred"><tt><b>X</b></tt></FONT>",
+<li> <s><b>Those</b></s> qubits have not been sent and measured
+      in the same bases. They are discarded.
+</ul>
+
+From the original <b>
+500
+</b> qubits sent and successfully received between <b>
+<b>Alice</b>
+</b> and <b>
+<b>Bob</b>
+</b>,<b>
+233
+</b> classical bits are kept. The kept positions are then sampled
+in order to find an estimate for the error-rate of the
+quantum transmission.
+<br>
+<h2>Error-rate Estimation</h2>
+<br>
+The kept positions are then sampled randomly in order to estimate
+the error-rate of the quantum channel. The size of the sample
+for this execution is <b>
+50
+</b> positions. 
+The result of <em>error-estimation</em>  on
+<b>Alice</b>
+'s side is looks like:
+<FONT COLOR=darkgreen><BR><BR><B>01011&nbsp;00<FONT COLOR=darkred>0</FONT>10&nbsp;10011&nbsp;00<FONT COLOR=darkred>1</FONT>0<FONT COLOR=darkred>0</FONT>&nbsp;<FONT COLOR=darkred>0</FONT><FONT COLOR=darkred>0</FONT>110&nbsp;&nbsp;0<FONT COLOR=darkred>0</FONT><FONT COLOR=darkred>1</FONT>10&nbsp;<FONT COLOR=darkred>0</FONT>0100&nbsp;10<FONT COLOR=darkred>0</FONT>01&nbsp;01110&nbsp;00101&nbsp;&nbsp;<BR>
+0<FONT COLOR=darkred>1</FONT>011&nbsp;11<FONT COLOR=darkred>0</FONT>10&nbsp;01<FONT COLOR=darkred>0</FONT>01&nbsp;11001&nbsp;<FONT COLOR=darkred>0</FONT><FONT COLOR=darkred>1</FONT>1<FONT COLOR=darkred>0</FONT>1&nbsp;&nbsp;00110&nbsp;0000<FONT COLOR=darkred>1</FONT>&nbsp;011<FONT COLOR=darkred>0</FONT>1&nbsp;<FONT COLOR=darkred>0</FONT>1100&nbsp;1<FONT COLOR=darkred>1</FONT>100&nbsp;&nbsp;<BR>
+010<FONT COLOR=darkred>0</FONT>1&nbsp;00011&nbsp;<FONT COLOR=darkred>0</FONT><FONT COLOR=darkred>0</FONT><FONT COLOR=darkred>0</FONT>01&nbsp;00<FONT COLOR=darkred>0</FONT>01&nbsp;<FONT COLOR=darkred>1</FONT>00<FONT COLOR=darkred>1</FONT>0&nbsp;&nbsp;<FONT COLOR=darkred>1</FONT>1<FONT COLOR=darkred>0</FONT>01&nbsp;<FONT COLOR=darkred>0</FONT>0<FONT COLOR=darkred>1</FONT>11&nbsp;1<FONT COLOR=darkred>0</FONT>101&nbsp;01010&nbsp;11<FONT COLOR=darkred>1</FONT>01&nbsp;&nbsp;<BR>
+01111&nbsp;0000<FONT COLOR=darkred>1</FONT>&nbsp;11<FONT COLOR=darkred>0</FONT>01&nbsp;1011<FONT COLOR=darkred>0</FONT>&nbsp;<FONT COLOR=darkred>1</FONT>1101&nbsp;&nbsp;00000&nbsp;<FONT COLOR=darkred>1</FONT><FONT COLOR=darkred>0</FONT>10<FONT COLOR=darkred>0</FONT>&nbsp;<FONT COLOR=darkred>0</FONT>10<FONT COLOR=darkred>1</FONT>1&nbsp;1010<FONT COLOR=darkred>0</FONT>&nbsp;00000&nbsp;&nbsp;<BR>
+10001&nbsp;1<FONT COLOR=darkred>1</FONT>0<FONT COLOR=darkred>1</FONT>0&nbsp;11111&nbsp;0<FONT COLOR=darkred>0</FONT>000&nbsp;0<FONT COLOR=darkred>1</FONT>001&nbsp;&nbsp;<FONT COLOR=darkred>1</FONT>11<FONT COLOR=darkred><U>1</U></FONT>1&nbsp;101</FONT></B><BR>
+<BR>
+Where,
+<ul>
+<li> <FONT COLOR="darkred"><b>Those</b></FONT> positions have been sampled,
+<li> <FONT COLOR="darkred"><b><u>Those</u></b></FONT> positions have 
+     revealed errors, and
+<li> <FONT COLOR="darkgreen"><b>Those</b></FONT> positions are the one of 
+     the plain-key.
+</ul>
+The observed error-rate for this execution is <b>
+0.02
+</b>.
+
+<h2>Statistics</h2>
+Here are some statistics about this execution:
+<ul>
+<li> The execution started with a <em>raw key</em> of <b> 
+500
+</b> qubits.
+<li> The annoucement of the bases has revealed <b> 
+233
+</b> positions that are likely to match.
+<li> The sample of <b>
+50
+</b> random positions has revealed:
+  <UL>
+    <li><b>
+48
+     </b> different positions,
+    <li> The random sampling found <b>  
+1
+	 </b> errors.
+    <li> The observed error-rate is 
+<b>0.02</b>
+	.
+    <li> The estimate is within
+<b>0.08115171</b>
+	with probability
+	larger than 
+<b>95</b>
+	<b>%</b>.
+  </UL>
+  <li> The final plain key is <b> 
+185
+   </b> bits long after removing the sampled positions.
+   <li> The resulting transmission rate for plain key agreement 
+	is 
+<b>2.7027028</b>
+	pulses per bit of plain key,
+</ul>
+</BODY>
+
+<!-- Mirrored from www.brics.dk/~salvail/qrypto/templates/initiator/PlainBB84/output2_1.html by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 03 May 2011 16:10:15 GMT -->
+</HTML>

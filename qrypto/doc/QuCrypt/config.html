@@ -1,0 +1,136 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+
+<!-- Mirrored from www.brics.dk/~salvail/qrypto/doc/QuCrypt/config.html by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 03 May 2011 16:05:28 GMT -->
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.76 [en] (X11; U; IRIX 6.5 IP32) [Netscape]">
+</head>
+<body text="#000000" bgcolor="#FF9900" link="#000099" vlink="#3366FF" alink="#000088">
+
+<center>
+<h1>
+QuCrypt's Configuration</h1></center>
+<font size=+1>Once <b>QuCrypt</b> has been launched for the first time,
+a configuration file can be created. Next time <b>QuCrypt</b> will be launched
+it is going to be configured appropriately. The configuration file will
+be stored in the default directory under the name <tt>qrypto.conf</tt>.
+One should not edit the configuration file manually. The configuration
+file should be updated by using the <tt>edit configuration</tt> tool.</font>
+<p><font size=+1>After launching <b>QuCrypt</b> the following window should
+appear:</font>
+<center>
+<p><img SRC="start.gif" HSPACE=3 VSPACE=3 BORDER=3 height=334 width=415></center>
+
+<p><br>
+<h2>
+Settings</h2>
+<font size=+1>The settings allow to select which entities will be launched.
+Since <b>QuCrypt</b> works with independant threads, the user can select
+which one of the threads should run on the same machine. The <a href="initplayer.html">initiator
+player</a> and the <a href="initserver.html">initiator server</a> are the
+two entities representing Alice whereas the <a href="respplayer.html">responder
+player</a> and the <a href="respserver.html">responder server</a> are the
+entities representing Bob.&nbsp; The entities should be checked in the
+following cases:</font>
+<ul>
+<li>
+<font size=+1><i>Everything running on the same machine</i>: The initiator
+player, initiator&nbsp; server, responder player, and responder server
+should be checked. This is the (default) situation shown.</font></li>
+
+<li>
+<font size=+1><i>Initiator only with simulated quantum channel</i>: The
+initiator player and the initiator server should be checked. The remote
+party should checked the responder player and the responder server.</font></li>
+
+<li>
+<font size=+1><i>Responder only with simulated channel</i>: The opposite
+of the previous setting. This means the responder player and the responder
+server are checked.</font></li>
+
+<li>
+<font size=+1><i>Initiator using a remote quantum channel</i>: Only the
+initiator player should be checked. The machine running the initiator part
+of the quantum channel should run the initiator server.</font></li>
+
+<li>
+<font size=+1><i>Responder using a remote quantum channel</i>: The same
+as the previous setting except that the responder player must be checked.</font></li>
+
+<li>
+<font size=+1><i>Running Alice on the machine connected to a real quantum
+channel</i>: The initiator player and the initiator server should be checked.</font></li>
+
+<li>
+<font size=+1><i>Running Bob on the machine connected to a real quantum
+channel</i>: The responder player and the responder server should be checked.</font></li>
+</ul>
+<font size=+1>The checkbox <i>Uses Fake DG</i> is selected when one wants
+the <a href="datagrabber.html">quantum data grabber </a>to be simulated.
+The result is the launching of the quantum data grabber as a transparent
+background process that allows to use real quantum channel without specialized
+hardware. This is the simulated mode the closest to the real experiment.
+The simulation includes lost in the fiber and all communication require
+between the grabbers and the servers. The communication rate achieved is
+comparable to the rate of our experiment.</font>
+<h2>
+Edit Configurations</h2>
+<font size=+1>The edit configuration button allows to generate a configuration
+file that will inidicate the default settings used each time <b>QuCrypt</b>
+is launched.&nbsp; The values that can be set are the ones appearing for
+each entity and the status of the checkedboxes in the <b>QuCrypt</b>'s
+launcher window.&nbsp; After the configuration file has been created <b>QuCrypt</b>
+must be launched again. The configuration window looks as follow:</font>
+<center>
+<p><img SRC="conf.gif" HSPACE=3 VSPACE=3 BORDER=3 height=560 width=414></center>
+
+<p><font size=+1>This window allows to set default values for almost each
+values needed to launch each entity. More precisely, the following values
+can be re-defined:</font>
+<ul>
+<li>
+<font size=+1>Default Initiator Server Settings: This allows to set the
+default values for the <a href="initserver.html">initiator server</a>.</font></li>
+
+<li>
+<font size=+1>Default Responder Server Settings: This allows to set the
+default values for the <a href="respserver.html">responder server</a>.</font></li>
+
+<li>
+<font size=+1>Default Initiator Player Settings: This allows to set the
+default values for the <a href="initplayer.html">initiator player</a>.
+The defautl values for the <a href="respplayer.html">responder player</a>
+are included in the previous settings.</font></li>
+
+<li>
+<font size=+1><i>Others</i>: Allows to set the <i>bucket size</i> which
+is the number of qubits transmitted over the real quantum channel before
+sending back the outcome to the servers. Larger values increase the speed
+since the transmission is less often interrupted. However the larger the
+bucket size gets, the less real-time responding are the players.&nbsp;
+The <i>Fake trans.&nbsp; rate</i> is the simulated visibility of the fake
+data grabber. The value 0.01 means that 1% of all qubits sent make it to
+Bob. The <i>Detectors error prob.</i> is the error probability of the simulated
+detectors.</font></li>
+
+<li>
+<font size=+1><i>HTML generation</i>: This allows to select the directory
+that contains the initiator and responder templates for HTML generation.
+The default one is <tt><a href="http://www.brics.dk/home/louis/anyj/projects/qrypto/templates/">&lt;qrypto_directory>/templates</a></tt>.</font></li>
+
+<li>
+<font size=+1><i>Fake DG</i>: This is the port number where the server
+connected to the <i>fake data grabber</i>.</font></li>
+
+<li>
+<font size=+1><i>Launch Settings</i>: Allows to define the default settings
+for the checkedboxes of the <b>QuCrypt</b>'s Launcher window.</font></li>
+</ul>
+
+<p><br>
+<hr WIDTH="100%">
+</body>
+
+<!-- Mirrored from www.brics.dk/~salvail/qrypto/doc/QuCrypt/config.html by HTTrack Website Copier/3.x [XR&CO'2010], Tue, 03 May 2011 16:05:39 GMT -->
+</html>
